@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Content Pipeline System — Live Demo | Dan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF7F1;--ink:#17130D;--muted:#6E675B;--line:rgba(23,19,13,.14);--green:#175239;--deep:#0E3A28;--cream:#F6F1E7;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+h1,.serif{font-family:"Fraunces",Georgia,serif;font-weight:500;letter-spacing:-0.02em}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.top a{color:var(--muted);text-decoration:none;font-size:14px}
+.banner{margin:26px 0 0;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--muted)}
+header{padding:44px 0 8px}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:12px}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1}
+.sub{margin-top:14px;color:var(--muted);max-width:660px;font-size:15.5px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:30px}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.q label{display:block;font-weight:600;font-size:13.5px;margin-bottom:7px}
+.q input,select{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:14px;background:var(--bg);color:var(--ink);margin-bottom:14px}
+.run{display:inline-block;margin-top:8px;padding:13px 30px;border-radius:999px;background:var(--green);color:var(--cream);font-weight:600;font-size:14.5px;border:none;cursor:pointer;font-family:inherit;transition:.15s}
+.run:hover{background:var(--deep);transform:translateY(-2px)}
+.cal{margin-top:26px;display:none}
+.day{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.day .d{font-family:"Fraunces",serif;font-size:16px;color:var(--green)}
+.day h3{font-size:16px;margin-bottom:5px}
+.day p{font-size:13.5px;color:var(--muted)}
+.tag{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--cream);border:1px solid var(--line);border-radius:99px;padding:3px 9px;margin-bottom:7px;color:var(--muted)}
+.emails{margin-top:22px;background:var(--deep);color:#DFF2E6;border-radius:12px;padding:20px;font-size:13.5px;line-height:1.8;white-space:pre-wrap}
+.dl{margin-top:16px;display:inline-block;font-size:13.5px;color:var(--green);text-decoration:underline;cursor:pointer}
+.note{text-align:center;color:var(--muted);font-size:13px;margin:34px 0 60px}
+.cta-row{text-align:center;margin:40px 0 70px}
+.btn{display:inline-block;padding:15px 30px;border-radius:999px;background:var(--green);color:var(--cream)!important;text-decoration:none;font-weight:600;font-size:15px}
+@media(max-width:700px){.q{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="/">← dan.</a><a href="/#book">Book a call</a></div>
+  <div class="banner"><b>Live interactive demo.</b> Describe your business and get a real week of scheduled content — generated in your browser. Production versions learn your brand voice and post on schedule with your approval.</div>
+
+  <header>
+    <div class="kicker">Demo · Content Pipeline</div>
+    <h1>One brief in.<br>A week of content out.</h1>
+    <p class="sub">The system turns a single description of your business into a scheduled, platform-ready content calendar. Fill it in and run it:</p>
+  </header>
+
+  <div class="panel">
+    <div class="q">
+      <div><label>Business name</label><input id="biz" placeholder="e.g. Harbor Dental"/></div>
+      <div><label>Industry</label>
+        <select id="ind"><option>Dental / medical clinic</option><option>Trades / home services</option><option>Consulting / professional services</option><option>E-commerce / retail</option><option>Fitness / wellness</option><option>Restaurant / hospitality</option></select></div>
+      <div><label>Main offer (what you sell)</label><input id="offer" placeholder="e.g. same-day dental implants"/></div>
+      <div><label>Target customer</label><input id="cust" placeholder="e.g. busy professionals in the city"/></div>
+    </div>
+    <button class="run" onclick="gen()">Generate Week ▸</button>
+
+    <div class="cal" id="cal"></div>
+    <span class="dl" id="dl" style="display:none" onclick="download()">⬇ download content calendar (.md)</span>
+  </div>
+
+  <p class="note">Template-driven generation here; production pipelines add LLM brand-voice matching, image sourcing, and auto-publishing with your final approval on everything.</p>
+  <div class="cta-row"><a class="btn" href="/#book">Never stare at a blank content calendar again →</a></div>
+</div>
+
+<script>
+const ANGLES={
+ "Dental / medical clinic":["Myth vs fact","Patient story angle","Prevention tip","Behind the scenes","Offer spotlight"],
+ "Trades / home services":["Before/after job","Seasonal warning","Quick DIY tip","Crew spotlight","Offer spotlight"],
+ "Consulting / professional services":["Contrarian take","Client win","Framework breakdown","Common mistake","Offer spotlight"],
+ "E-commerce / retail":["Product in action","Style/use idea","Customer review","Restock alert","Offer spotlight"],
+ "Fitness / wellness":["Form fix","Member milestone","Myth bust","Coach tip","Offer spotlight"],
+ "Restaurant / hospitality":["Kitchen prep","Dish spotlight","Staff pick","Event tease","Offer spotlight"]};
+const HOOKS={
+ "Myth vs fact":["Stop believing this about {t}.","Everything you know about {t} is slightly wrong.","{t}: the myth that costs people money."],
+ "Patient story angle":["A real result from this week 👇","This is why we do what we do.","From problem to solved in one visit."],
+ "Prevention tip":["One habit that saves you later:","The 2-minute check that prevents {t} disasters.","Do this today, thank yourself later."],
+ "Behind the scenes":["What your {biz} team actually does before you arrive.","The part of {t} nobody shows you.","A peek behind the curtain at {biz}."],
+ "Offer spotlight":["{offer} — now booking.","If you've been putting off {t}, this is your sign.","{offer}: built for {c}."],
+ "Before/after job":["Before & after — swipe. →","Another job done right.","This {t} job took us X hours. Worth it."],
+ "Seasonal warning":["It's the season for {t} problems. Here's the fix.","Don't wait for this to become an emergency.","Weather happens. {biz} has you covered."],
+ "Quick DIY tip":["Try this before you call us:","3-minute fix for a common {t} issue.","Save a service call with this trick."],
+ "Crew spotlight":["Meet the crew keeping {c} covered.","Why our techs show up with shoe covers.","The people behind {biz}."],
+ "Contrarian take":["Unpopular opinion about {t}:","Everyone tells {c} to X. We disagree. Here's why:","The advice about {t} that's quietly wrong."],
+ "Client win":["A client came to us with a {t} problem. Here's what happened.","Numbers from this week's client win:","Another {c} headache, solved."],
+ "Framework breakdown":["How we approach {t} in 3 steps:","The exact framework we use with {c}.","Steal our process for {t}:"],
+ "Common mistake":["The #1 mistake {c} make with {t}:","We see this {t} mistake weekly. Are you making it?","This costs {c} the most money:"],
+ "Product in action":["{offer} in the wild 👇","How {c} actually use this:","One product, three uses:"],
+ "Style/use idea":["Three ways to use {offer} this week:","The pairing you haven't tried:","Make {offer} work harder:"],
+ "Customer review":["Don't take our word for it:","This review made our week. ⭐","{c} said it best:"],
+ "Restock alert":["Back in stock: {offer}.","You asked, we restocked.","Last time this sold out in days."],
+ "Form fix":["Fix this one thing in your {t} routine:","Your form is costing you results. Quick fix:","90% of people get this wrong:"],
+ "Member milestone":["Big milestone this week 🎉","Progress looks like this:","Consistency pays — proof inside."],
+ "Myth bust":["No, you don't need to X. Here's what actually works:","Fitness myth, retired:","The truth about {t}:"],
+ "Coach tip":["Coach's tip of the week:","The cue that changes everything:","Small tweak, big difference in {t}."],
+ "Kitchen prep":["5:30 AM at {biz}. Here's what's happening:","Fresh starts every morning:","Today's prep, start to finish:"],
+ "Dish spotlight":["This week's hero dish: {offer}","The dish everyone's ordering:","If you order one thing, make it this."],
+ "Staff pick":["Staff pick of the week:","What the team orders on day off:","Ask for Maria's favourite."],
+ "Event tease":["Something's coming. 👀","Save the date — details soon.","{biz} has news for {c}."]};
+const CTAS=["Book this week →","DM us 'INFO' for details","Link in bio to book","Tap to claim — limited slots","Reply and we'll sort you out"];
+const DAYS=["Monday","Tuesday","Wednesday","Thursday","Friday"];
+
+function gen(){
+  const biz=document.getElementById("biz").value.trim()||"your business";
+  const ind=document.getElementById("ind").value;
+  const offer=document.getElementById("offer").value.trim()||"our main offer";
+  const cust=document.getElementById("cust").value.trim()||"your customers";
+  const T=ind.toLowerCase().split(" / ")[0].split(" ")[0];
+  const fill=s=>s.replaceAll("{t}",T).replaceAll("{biz}",biz).replaceAll("{offer}",offer).replaceAll("{c}",cust);
+  const angles=ANGLES[ind];const out=[];
+  for(let i=0;i<5;i++){
+    const a=angles[i%angles.length];
+    const hook=fill(HOOKS[a][i%HOOKS[a].length]);
+    const cta=CTAS[(i*2)%CTAS.length];
+    out.push({day:DAYS[i],tag:a,hook,
+      body:fill(`${hook}\n\n${offer} — made simple for ${cust}. We handle the hard part so you don't have to think about it.\n\n${cta}`)});
+  }
+  const box=document.getElementById("cal");
+  box.innerHTML=out.map(o=>`<div class="day"><div class="d">${o.day}</div><div><span class="tag">${o.tag}</span><h3>${o.hook}</h3><p style="white-space:pre-wrap">${o.body.split("\n\n").slice(1).join("\n\n")}</p></div></div>`).join("")
+   +`<div class="emails">📧 EMAIL SUBJECT LINES (batch-generated)\n\n`+
+    [`Why ${cust.split(" ")[0]}s choose ${biz}`,`${offer}: spots open this week`,`${T} problem? 2-minute fix inside`,`The ${T} mistake we see every week`,`Quick one before Friday`].map(s=>"• "+fill(s)).join("\n")+"</div>";
+  box.style.display="block";window._cal=out;
+  document.getElementById("dl").style.display="inline";
+  box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function download(){
+  const md="# Content Week — "+(document.getElementById("biz").value||"Business")+"\n\n"+
+    window._cal.map(o=>`## ${o.day} — ${o.tag}\n\n${o.body}\n`).join("\n");
+  const b=new Blob([md],{type:"text/markdown"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="content-week.md";a.click();
+}
+</script>
+</body>
+</html>
