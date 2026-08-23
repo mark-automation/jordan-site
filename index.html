@@ -9,6 +9,7 @@
 <meta property="og:description" content="I build AI systems that answer your customers, qualify your leads, and book your appointments — automatically. Run the live demos, then book a free discovery call." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jordan.nekobiz.com/" />
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-930QGPRC27"></script>
 <script>
@@ -20,7 +21,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
 :root {
     --bg: #050507;
@@ -37,11 +37,8 @@
     --ok: #3DE8A0;
     --warn: #FFC24B;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
     background: var(--bg);
     color: var(--text);
@@ -49,9 +46,7 @@ body {
     line-height: 1.65;
     overflow-x: hidden;
 }
-
 h1, h2, h3, .wordmark { font-family: "Space Grotesk", sans-serif; }
-
 /* AURORA BACKGROUND */
 .aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .aurora::before, .aurora::after {
@@ -74,9 +69,7 @@ h1, h2, h3, .wordmark { font-family: "Space Grotesk", sans-serif; }
 }
 @keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(12vw,8vw) scale(1.15); } }
 @keyframes drift2 { from { transform: translate(0,0) scale(1.1); } to { transform: translate(-10vw,12vw) scale(0.95); } }
-
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
 /* NAV */
 nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
@@ -100,7 +93,6 @@ nav {
     background: var(--glass); transition: 0.2s;
 }
 .nav-cta:hover { border-color: rgba(124,92,255,0.6); box-shadow: 0 0 24px rgba(124,92,255,0.25); }
-
 /* BUTTONS */
 .btn {
     display: inline-block; padding: 14px 26px; border-radius: 999px;
@@ -111,7 +103,6 @@ nav {
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(124,92,255,0.5); }
 .btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--glass); }
 .btn-ghost:hover { border-color: rgba(0,224,255,0.5); }
-
 /* HERO */
 .hero { padding: 180px 0 90px; }
 .hero .eyebrow {
@@ -139,7 +130,6 @@ nav {
     border-radius: 999px; padding: 8px 16px; background: var(--panel);
 }
 .chip b { color: var(--text); font-weight: 600; }
-
 /* TICKER */
 .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 18px 0; background: rgba(255,255,255,0.015); }
 .ticker-track { display: flex; gap: 48px; white-space: nowrap; animation: scroll 30s linear infinite; width: max-content; }
@@ -149,7 +139,6 @@ nav {
     letter-spacing: 1.5px; text-transform: uppercase; color: var(--faint);
 }
 .ticker-track span::after { content: "◆"; margin-left: 48px; color: var(--accent); font-size: 10px; vertical-align: middle; }
-
 /* SECTIONS */
 section { padding: 90px 0; }
 .sec-label {
@@ -158,7 +147,6 @@ section { padding: 90px 0; }
 }
 h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15; max-width: 700px; }
 .sec-lede { margin-top: 16px; color: var(--muted); max-width: 640px; font-size: 16px; }
-
 /* PROBLEM */
 .pains { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 900px; }
 .pain {
@@ -172,7 +160,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
     font-size: clamp(20px, 3vw, 28px); font-weight: 600; letter-spacing: -0.5px; max-width: 760px;
 }
 .punch em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-
 /* SERVICES — numbered rows */
 .services { margin-top: 48px; border-top: 1px solid var(--border); }
 .svc {
@@ -184,7 +171,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
 .svc .num { font-family: "Space Grotesk", sans-serif; font-size: 15px; color: var(--faint); letter-spacing: 1px; }
 .svc h3 { font-size: 24px; letter-spacing: -0.5px; }
 .svc p { color: var(--muted); font-size: 15px; }
-
 /* DIAGRAM (SVG visual) */
 .diagram-box {
     margin-top: 56px;
@@ -199,7 +185,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
     padding: 12px 0 8px; letter-spacing: 0.3px;
 }
 .diagram-box svg { display: block; width: 100%; height: auto; min-width: 640px; }
-
 /* DEMO LAB */
 .demo-note { margin-top: 18px; font-size: 13.5px; color: var(--faint); max-width: 680px; }
 .demo {
@@ -246,7 +231,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
 .btn-run:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 26px rgba(124,92,255,0.45); }
 .btn-run:disabled { opacity: 0.55; cursor: wait; }
 .run-hint { font-size: 12.5px; color: var(--faint); }
-
 /* terminal-style output panel */
 .term {
     background: rgba(0,0,0,0.55);
@@ -267,16 +251,13 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
 .term .t-bad { color: var(--danger); }
 .term .t-step { color: var(--text); }
 .term pre { white-space: pre-wrap; word-break: break-word; margin: 0; font: inherit; }
-
 .score-bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; margin: 8px 0 4px; }
 .score-fill { height: 100%; width: 0%; background: var(--grad); transition: width 1s ease; }
 .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
 .badge.hot { background: rgba(255,107,122,0.15); color: var(--danger); border: 1px solid rgba(255,107,122,0.4); }
 .badge.warm { background: rgba(255,194,75,0.12); color: var(--warn); border: 1px solid rgba(255,194,75,0.4); }
 .badge.cold { background: rgba(242,244,250,0.08); color: var(--muted); border: 1px solid var(--border); }
-
 .demo-foot { padding: 0 24px 20px; font-size: 12px; color: var(--faint); }
-
 /* USE CASES */
 .cases { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .case {
@@ -292,7 +273,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
 .case .glyph { font-size: 22px; margin-bottom: 14px; display: block; }
 .case h3 { font-size: 17px; margin-bottom: 8px; }
 .case p { font-size: 13.5px; color: var(--muted); }
-
 /* PROCESS */
 .steps { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
 .steps::before {
@@ -314,7 +294,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
     display: inline-block; margin-top: 10px; font-size: 11px; letter-spacing: 1.5px;
     text-transform: uppercase; color: var(--accent2); font-weight: 600;
 }
-
 /* PROOF STRIP */
 .proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
 .proof .item { border: 1px solid var(--border); border-radius: 14px; padding: 22px; background: var(--panel); }
@@ -324,7 +303,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
     -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 6px;
 }
 .proof .item p { font-size: 13.5px; color: var(--muted); }
-
 /* BOOKING */
 .booking { text-align: center; }
 .booking h2 { margin: 0 auto; }
@@ -335,7 +313,6 @@ h2 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -1px; line-height: 1.15;
     box-shadow: 0 0 60px rgba(124,92,255,0.12); text-align: left;
 }
 .assure { margin-top: 22px; font-size: 13.5px; color: var(--faint); }
-
 /* FOOTER */
 footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
 .foot-inner {
@@ -344,11 +321,35 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
 }
 .foot-inner a { color: var(--muted); text-decoration: none; }
 .foot-inner a:hover { color: var(--accent2); }
-
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: none; }
-
+/* PROOF SHOTS */
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+.shot {
+    display: block; text-decoration: none; color: var(--text);
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; transition: transform .2s ease, border-color .2s ease;
+}
+.shot:hover { transform: translateY(-4px); border-color: rgba(124,92,255,0.5); }
+.shot img { display: block; width: 100%; height: auto; }
+.shot .meta { padding: 14px 16px 16px; }
+.shot .meta b { font-size: 14px; display: block; margin-bottom: 3px; }
+.shot .meta span { font-size: 12.5px; color: var(--faint); display: block; }
+.shot .live { color: var(--ok); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; }
+/* MORE SYSTEMS */
+.more-systems { margin-top: 42px; }
+.ms-label { font-size: 13px; color: var(--faint); display: block; margin-bottom: 14px; }
+.ms-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ms-card {
+    display: flex; flex-direction: column; gap: 6px; text-decoration: none;
+    color: var(--text); background: var(--panel); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px; transition: transform .2s ease, border-color .2s ease;
+}
+.ms-card:hover { transform: translateY(-3px); border-color: rgba(124,92,255,.5); }
+.ms-card b { font-size: 14px; }
+.ms-card span { font-size: 12.5px; color: var(--muted); flex: 1; }
+.ms-card i { font-style: normal; font-size: 11px; letter-spacing: .1em; color: var(--accent2); }
 /* ============ MOBILE ============ */
 @media(max-width: 900px) {
     .hero { padding: 140px 0 60px; }
@@ -358,6 +359,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
     .steps { grid-template-columns: 1fr; gap: 40px; }
     .steps::before { display: none; }
     .proof { grid-template-columns: 1fr; }
+    .shots { grid-template-columns: 1fr; }
+    .ms-row { grid-template-columns: 1fr; }
     .svc { grid-template-columns: 50px 1fr; }
     .svc p { grid-column: 2; }
     .demo-body { grid-template-columns: 1fr; }
@@ -386,11 +389,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
 }
 </style>
 </head>
-
 <body>
-
 <div class="aurora"></div>
-
 <nav>
     <div class="nav-inner">
         <a class="wordmark" href="#top">dan<span>.</span>ai</a>
@@ -420,6 +420,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
         <span class="chip"><b>24/7</b> — agents that don't sleep</span>
         <span class="chip"><b>Remote</b> — AU/US-friendly hours</span>
     </div>
+
 </header>
 
 <!-- TICKER -->
@@ -431,6 +432,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
 </div>
 
 <!-- PROBLEM -->
+
 <section class="wrap reveal">
     <div class="sec-label">The Problem</div>
     <h2>Manual work is a tax you pay every single day.</h2>
@@ -445,13 +447,14 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
     <div class="punch">
         Every one of those is a system that should run itself. <em>I build it.</em>
     </div>
+
 </section>
 
 <!-- SERVICES -->
+
 <section class="wrap reveal" id="services">
     <div class="sec-label">Services</div>
     <h2>Systems I build for your business.</h2>
-
     <div class="services">
         <div class="svc">
             <div class="num">/01</div>
@@ -481,7 +484,6 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
             </p>
         </div>
     </div>
-
     <!-- BEFORE/AFTER VISUAL -->
     <figure class="diagram-box">
         <svg viewBox="0 0 900 260" role="img" aria-label="Diagram: tangled manual workflow versus clean automated pipeline">
@@ -508,10 +510,8 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
                 <text x="282" y="114" fill="#F2F4FA">Invoices</text>
             </g>
             <text x="95" y="245" fill="rgba(242,244,250,0.35)" font-size="12" font-family="Inter,sans-serif">copy-paste · dropped threads · re-typing</text>
-
             <!-- arrow divider -->
             <path d="M430 130 L 470 130 M460 122 L 470 130 L 460 138" stroke="#7C5CFF" stroke-width="2" fill="none"/>
-
             <!-- RIGHT: automated pipeline -->
             <text x="560" y="30" fill="#00E0FF" font-size="13" font-family="Inter,sans-serif" letter-spacing="2">AFTER — AUTOMATED</text>
             <defs>
@@ -540,9 +540,11 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
         </svg>
         <figcaption>What a business looks like before and after the systems go in.</figcaption>
     </figure>
+
 </section>
 
 <!-- DEMO LAB -->
+
 <section class="wrap reveal" id="try">
     <div class="sec-label">Proof of Work — Live Demos</div>
     <h2>Don't take my word for it. Run them.</h2>
@@ -555,7 +557,6 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
         Simplified in-browser previews of full builds. Production versions run on your
         stack, use your data, and connect to your actual tools.
     </p>
-
     <!-- DEMO 1: LEAD QUALIFIER -->
     <div class="demo">
         <div class="demo-head">
@@ -575,7 +576,6 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
         </div>
         <div class="demo-foot">Production version: watches your inbox/forms 24/7 → scores → routes to CRM + Slack → offers a booking link automatically.</div>
     </div>
-
     <!-- DEMO 2: INVOICE EXTRACTOR -->
     <div class="demo">
         <div class="demo-head">
@@ -590,12 +590,10 @@ Invoice from Brightwave Supplies Ltd
 Invoice #: BS-20417
 Date: 2026-08-14
 Due Date: 2026-09-13
-
 Items:
 - Office chairs x12 ............ $3,240.00
 - Standing desks x6 ............ $4,140.00
 - Delivery ..................... $180.00
-
 Total: $7,560.00</textarea>
                 <div class="run-row">
                     <button class="btn-run" id="doc-run" onclick="runDocDemo()">Extract Fields ▸</button>
@@ -606,7 +604,6 @@ Total: $7,560.00</textarea>
         </div>
         <div class="demo-foot">Production version: reads PDFs &amp; scans (OCR), extracts, files to your accounting system, flags mismatches for review.</div>
     </div>
-
     <!-- DEMO 3: WORKFLOW SIMULATOR -->
     <div class="demo">
         <div class="demo-head">
@@ -630,14 +627,24 @@ Total: $7,560.00</textarea>
         </div>
         <div class="demo-foot">Production version: these exact stages run against live events from your tools, with retries, logging and alerting.</div>
     </div>
+
 </section>
 
+<div class="more-systems">
+        <span class="ms-label">Three more full systems run on their own pages:</span>
+        <div class="ms-row">
+            <a class="ms-card" href="demo/scheduler/"><b>📅 Appointment Booking System</b><span>Complete a real booking flow → confirmation + calendar file download.</span><i>RUN IT →</i></a>
+            <a class="ms-card" href="demo/content-factory/"><b>✍️ Content Pipeline System</b><span>One brief in → a week of scheduled posts + email subjects, downloadable.</span><i>RUN IT →</i></a>
+            <a class="ms-card" href="demo/support-agent/"><b>💬 AI Support Agent</b><span>The talk-to-it one — answers from knowledge, cites sources, escalates cleanly.</span><i>CHAT →</i></a>
+        </div>
+    </div>
+
 <!-- USE CASES -->
+
 <section class="wrap reveal" id="use-cases">
     <div class="sec-label">In Practice</div>
     <h2>What that looks like on the ground.</h2>
     <p class="sec-lede">Every build is shaped around how your business actually works — these are the shapes it usually takes. <a href="#try" style="color:var(--accent2);">Try the live demos ↑</a></p>
-
     <div class="cases">
         <div class="case">
             <span class="glyph">💬</span>
@@ -670,13 +677,14 @@ Total: $7,560.00</textarea>
             <p>Something specific to your operation? We map it together on a call and automate the slow parts.</p>
         </div>
     </div>
+
 </section>
 
 <!-- PROCESS -->
+
 <section class="wrap reveal" id="process">
     <div class="sec-label">How It Works</div>
     <h2>From busywork to autopilot in three steps.</h2>
-
     <div class="steps">
         <div class="step">
             <div class="num">1</div>
@@ -695,13 +703,14 @@ Total: $7,560.00</textarea>
             <p>Handover with training for your team, or fully managed — monitored in production and improved over time.</p>
         </div>
     </div>
+
 </section>
 
 <!-- PROOF -->
+
 <section class="wrap reveal" id="proof">
     <div class="sec-label">Why Trust the Systems</div>
     <h2>Built in production, not slideware.</h2>
-
     <div class="proof">
         <div class="item">
             <div class="big">10+ yrs</div>
@@ -716,9 +725,39 @@ Total: $7,560.00</textarea>
             <p>Distributed systems and performance engineering under the hood — reliability is the default, not the upsell.</p>
         </div>
     </div>
+
+    <div class="shots">
+        <a class="shot" href="https://nekobiz.com/" target="_blank" rel="noopener">
+            <img src="assets/proof-haki.png" alt="Haki - AI & automation platform by Dan, live at nekobiz.com" loading="lazy"/>
+            <div class="meta">
+                <span class="live">● Live — click to open</span>
+                <b>Haki · nekobiz.com</b>
+                <span>Deploy-ready AI agent platform: 500+ deployments, systems live in under 5 minutes.</span>
+            </div>
+        </a>
+        <a class="shot" href="https://mark-automation.github.io/clinic-storage-frontend/" target="_blank" rel="noopener">
+            <img src="assets/proof-clinic.png" alt="Clinic Storage - secure medical file management app" loading="lazy"/>
+            <div class="meta">
+                <span class="live">● Live — demo login on screen</span>
+                <b>Clinic Storage Platform</b>
+                <span>Secure medical file management for a healthcare business. Log in and click around yourself.</span>
+            </div>
+        </a>
+        <a class="shot" href="https://mark-automation.github.io/cure-health-clinic/" target="_blank" rel="noopener">
+            <img src="assets/proof-cure.png" alt="Cure Health Clinic website with online booking" loading="lazy"/>
+            <div class="meta">
+                <span class="live">● Live — click to open</span>
+                <b>Cure Health Diagnostic Clinic</b>
+                <span>Full clinic site with online booking across two branches — built and shipped end to end.</span>
+            </div>
+        </a>
+    </div>
+
+
 </section>
 
 <!-- BOOKING -->
+
 <section class="wrap booking reveal" id="book">
     <div class="sec-label">Get Started</div>
     <h2>Book your free discovery call.</h2>
@@ -726,17 +765,15 @@ Total: $7,560.00</textarea>
         30 minutes. We find the workflow costing you the most hours and map what
         automating it looks like — the plan is yours to keep either way.
     </p>
-
     <div class="calendly-box">
         <div class="calendly-inline-widget"
              data-url="https://calendly.com/keroro/30min?hide_gdpr_banner=1"
              style="min-width:320px;height:700px;"></div>
         <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
-
     <div class="assure">No pressure, no obligation — if automation isn't a fit, I'll tell you straight.</div>
-</section>
 
+</section>
 <footer>
     <div class="wrap foot-inner">
         <span class="wordmark" style="font-size:16px;">dan<span>.</span>ai</span>
@@ -744,13 +781,11 @@ Total: $7,560.00</textarea>
         <a href="#book">Book a call ↑</a>
     </div>
 </footer>
-
 <script>
 const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
 /* ---------- shared helpers ---------- */
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function setTerm(id, html){ document.getElementById(id).innerHTML = '<pre>' + html + '</pre>'; }
@@ -767,7 +802,6 @@ async function typeSteps(outId, steps){
         appendTerm(outId, '<span class="' + cls + '">' + esc(text) + '</span>\n');
     }
 }
-
 /* ---------- DEMO 1: LEAD QUALIFIER ---------- */
 async function runLeadDemo(){
     const btn = document.getElementById('lead-run');
@@ -775,14 +809,12 @@ async function runLeadDemo(){
     btn.disabled = true;
     const raw = document.getElementById('lead-input').value.trim();
     if(!raw){ setTerm(outId, '<span class="t-bad">error:</span> empty input — paste a lead message first.'); btn.disabled = false; return; }
-
     setTerm(outId, '');
     await typeSteps(outId, [
         [150, 't-dim', '$ lead-engine --qualify'],
         [350, 't-step', '▸ parsing message (' + raw.split(/\s+/).length + ' tokens)...'],
         [450, 't-step', '▸ scoring signals...'],
     ]);
-
     // heuristic scoring engine (runs locally, deterministic)
     let score = 30;
     const reasons = [];
@@ -816,7 +848,6 @@ async function runLeadDemo(){
     const action = tier === 'HOT' ? 'Priority route: instant booking link + founder alert'
                  : tier === 'WARM' ? 'Nurture sequence + calendar offer within 24h'
                  : 'Capture & newsletter sequence';
-
     await sleep(500);
     appendTerm(outId,
         '\n<span class="t-dim">score:</span> ' + score + '/100\n' +
@@ -829,7 +860,6 @@ async function runLeadDemo(){
     );
     btn.disabled = false;
 }
-
 /* ---------- DEMO 2: DOC EXTRACTOR ---------- */
 async function runDocDemo(){
     const btn = document.getElementById('doc-run');
@@ -837,14 +867,12 @@ async function runDocDemo(){
     btn.disabled = true;
     const raw = document.getElementById('doc-input').value.trim();
     if(!raw){ setTerm(outId, '<span class="t-bad">error:</span> empty input.'); btn.disabled = false; return; }
-
     setTerm(outId, '');
     await typeSteps(outId, [
         [150, 't-dim', '$ doc-extractor --parse'],
         [400, 't-step', '▸ reading document (' + raw.length + ' chars)...'],
         [450, 't-step', '▸ extracting fields...'],
     ]);
-
     const grab = re => { const m = raw.match(re); return m ? m[1].trim() : null; };
     let vendor = grab(/(?:invoice\s*from|billed\s*by)[:\s]+([^\n]+?)(?:\s*<|\n|$)/i);
     if(!vendor || vendor.includes('@')){
@@ -855,13 +883,11 @@ async function runDocDemo(){
     const date   = grab(/(?:invoice\s*)?date[\s:]+(\d{4}-\d{2}-\d{2}|\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/i);
     const due    = grab(/due\s*date[\s:]+(\d{4}-\d{2}-\d{2}|\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/i);
     const total  = grab(/total[\s:]*\$?\s*([\d,]+\.\d{2})/i);
-
     const items = [];
     (raw.match(/^[-•*]\s*.+$/gm) || []).forEach(line => {
         const m = line.replace(/^[-•*]\s*/, '').match(/^(.{2,60}?)\s*\.{0,}\s*\$?\s*([\d,]+\.\d{2})$/);
         if(m && !/^(total|subtotal|balance|tax)\b/i.test(m[1])) items.push([m[1].replace(/\.{2,}|\s+$/g,'').trim(), m[2]]);
     });
-
     await sleep(550);
     let out =
         '<span class="t-dim">fields found:</span>\n' +
@@ -883,7 +909,6 @@ async function runDocDemo(){
     appendTerm(outId, out);
     btn.disabled = false;
 }
-
 /* ---------- DEMO 3: WORKFLOW SIMULATOR ---------- */
 const WF = {
     lead: [
@@ -933,6 +958,5 @@ async function runWfDemo(){
     btn.disabled = false;
 }
 </script>
-
 </body>
 </html>
