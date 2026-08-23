@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lead Qualification System — Live Demo | Dan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF7F1;--ink:#17130D;--muted:#6E675B;--line:rgba(23,19,13,.14);--green:#175239;--deep:#0E3A28;--cream:#F6F1E7;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+h1,h2,.serif{font-family:"Fraunces",Georgia,serif;font-weight:500;letter-spacing:-0.02em}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.top a{color:var(--muted);text-decoration:none;font-size:14px}
+.top a:hover{color:var(--ink)}
+.banner{margin:26px 0 0;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--muted)}
+.banner b{color:var(--green)}
+header{padding:44px 0 8px}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:12px}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1}
+.sub{margin-top:14px;color:var(--muted);max-width:640px;font-size:15.5px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:30px}
+.q{margin-bottom:22px}
+.q label{display:block;font-weight:600;font-size:14px;margin-bottom:8px}
+select,input[type=text]{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:14.5px;background:var(--bg);color:var(--ink)}
+.run{display:inline-block;margin-top:6px;padding:14px 30px;border-radius:999px;background:var(--green);color:var(--cream);font-weight:600;font-size:15px;border:none;cursor:pointer;font-family:inherit;transition:.15s}
+.run:hover{background:var(--deep);transform:translateY(-2px)}
+.out{margin-top:26px;display:none}
+.scorebar{height:10px;border-radius:99px;background:rgba(23,19,13,.08);overflow:hidden;margin:14px 0 8px}
+.scorebar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),#1B6B4B)}
+.verdict{font-family:"Fraunces",serif;font-size:26px}
+.verdict small{font-family:"Inter";font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:4px}
+.outgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.cell{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px}
+.cell h3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
+.cell p{font-size:14px}
+.msg{background:var(--deep);color:var(--cream);border-radius:10px;padding:16px;font-size:13.5px;line-height:1.7;white-space:pre-wrap;margin-top:14px}
+.note{text-align:center;color:var(--muted);font-size:13px;margin:34px 0 60px}
+.cta-row{text-align:center;margin:40px 0 70px}
+.btn{display:inline-block;padding:15px 30px;border-radius:999px;background:var(--green);color:var(--cream)!important;text-decoration:none;font-weight:600;font-size:15px}
+.btn:hover{background:var(--deep)}
+@media(max-width:700px){.outgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="/">← dan.</a><a href="/#book">Book a call</a></div>
+
+  <div class="banner"><b>Live interactive demo.</b> This qualification system runs entirely in your browser — fill it in and get real output. Production versions connect to your forms, inbox, and CRM automatically.</div>
+
+  <header>
+    <div class="kicker">Demo · Lead Qualification System</div>
+    <h1>Every inquiry, scored and routed<br>before you finish your coffee.</h1>
+    <p class="sub">This is what happens to a lead the moment it arrives. Fill it in as one of your own prospects would — the system scores, routes, and drafts the follow-up instantly.</p>
+  </header>
+
+  <div class="panel">
+    <div class="q"><label>What does the lead want?</label>
+      <select id="need">
+        <option value="3">Full automation of a core process</option>
+        <option value="2">One specific workflow (support / leads / docs)</option>
+        <option value="1">Just exploring options right now</option>
+      </select></div>
+    <div class="q"><label>Team size</label>
+      <select id="size">
+        <option value="3">11–50 people</option>
+        <option value="3">51+ people</option>
+        <option value="2">2–10 people</option>
+        <option value="1">Just me</option>
+      </select></div>
+    <div class="q"><label>How soon do they want it live?</label>
+      <select id="when">
+        <option value="3">This month</option>
+        <option value="2">Next 1–3 months</option>
+        <option value="1">No timeline yet</option>
+      </select></div>
+    <div class="q"><label>How did they arrive?</label>
+      <select id="src">
+        <option value="3">Referral</option>
+        <option value="2">Saw a live demo / website</option>
+        <option value="1">Cold outreach</option>
+        <option value="1">Social media</option>
+      </select></div>
+    <button class="run" onclick="run()">Run Qualification ▸</button>
+
+    <div class="out" id="out">
+      <div class="verdict"><small>Verdict</small><span id="v"></span></div>
+      <div class="scorebar"><i id="bar"></i></div>
+      <p id="scoretxt" style="font-size:13px;color:var(--muted)"></p>
+      <div class="outgrid">
+        <div class="cell"><h3>Routed To</h3><p id="route"></p></div>
+        <div class="cell"><h3>Next Action</h3><p id="next"></p></div>
+      </div>
+      <div class="cell" style="margin-top:14px"><h3>Drafted Follow-Up (sent automatically)</h3></div>
+      <div class="msg" id="msg"></div>
+    </div>
+  </div>
+
+  <p class="note">Scoring weights, thresholds, routing rules and message tone are all configurable per client — this demo uses a sensible default profile.</p>
+  <div class="cta-row"><a class="btn" href="/#book">Want this on your leads? Book a free call →</a></div>
+</div>
+
+<script>
+function run(){
+  const g=id=>+document.getElementById(id).value;
+  const s=g("need")+g("size")+g("when")+g("src");
+  const pct=Math.round(s/12*100);
+  document.getElementById("out").style.display="block";
+  const bar=document.getElementById("bar"); bar.style.width=pct+"%";
+  document.getElementById("scoretxt").textContent=`Qualification score: ${s}/12 (${pct}%)`;
+  let v,r,n;
+  if(s>=9){v="HOT LEAD 🔥";r="You — direct booking link, priority slot.";n="Auto-book a call within 24 hours.";}
+  else if(s>=6){v="WARM LEAD";r="Sales follow-up queue.";n="Personalised reply within 4 business hours + booking link.";}
+  else{v="NURTURE";r="Email nurture sequence.";n="Send capability guide now; re-check in 30 days.";}
+  document.getElementById("v").textContent=v;
+  document.getElementById("route").textContent=r;
+  document.getElementById("next").textContent=n;
+  const need=document.getElementById("need").selectedOptions[0].text.toLowerCase();
+  const when=document.getElementById("when").selectedOptions[0].text.toLowerCase();
+  document.getElementById("msg").textContent=
+`Hi — thanks for reaching out about ${need}.
+
+Based on what you've shared, this looks like a strong fit, and ${when} is realistic.
+
+Here's the fastest path: grab a free 20-minute call and we'll map the exact rollout for your team — [booking link]
+
+If you'd rather see the system working first, try the live demo here: [demo link]
+
+— Dan, AI Automation Studio`;
+  document.getElementById("out").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+</script>
+</body>
+</html>
