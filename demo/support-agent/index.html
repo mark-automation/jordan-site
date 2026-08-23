@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Support Agent — Live Demo | Dan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF7F1;--ink:#17130D;--muted:#6E675B;--line:rgba(23,19,13,.14);--green:#175239;--deep:#0E3A28;--cream:#F6F1E7;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+h1,.serif{font-family:"Fraunces",Georgia,serif;font-weight:500;letter-spacing:-0.02em}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.top a{color:var(--muted);text-decoration:none;font-size:14px}
+.banner{margin:26px 0 0;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--muted)}
+header{padding:44px 0 8px}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:12px}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1}
+.sub{margin-top:14px;color:var(--muted);font-size:15.5px}
+.chatbox{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:30px;overflow:hidden}
+.chat-head{background:var(--green);color:var(--cream);padding:14px 20px;display:flex;align-items:center;gap:10px}
+.chat-head .dot{width:9px;height:9px;border-radius:50%;background:#7BE3A8}
+.chat-head b{font-size:14.5px}
+.chat-head span{font-size:12px;opacity:.75;margin-left:auto}
+.log{padding:20px;height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:78%;padding:11px 15px;border-radius:14px;font-size:14px;line-height:1.55}
+.bot{background:var(--cream);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.user{background:var(--green);color:var(--cream);border-bottom-right-radius:4px;align-self:flex-end}
+.sys{align-self:center;font-size:11.5px;color:var(--muted);background:var(--bg);border-radius:99px;padding:4px 12px}
+.bar{display:flex;gap:10px;padding:14px;border-top:1px solid var(--line)}
+.bar input{flex:1;padding:12px 15px;border:1px solid var(--line);border-radius:999px;font-family:inherit;font-size:14px;background:var(--bg);color:var(--ink);outline:none}
+.bar input:focus{border-color:var(--green)}
+.bar button{padding:12px 22px;border-radius:999px;background:var(--green);color:var(--cream);border:none;font-weight:600;font-family:inherit;font-size:14px;cursor:pointer}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 16px}
+.chip{font-size:12.5px;border:1px solid var(--line);border-radius:99px;padding:6px 13px;cursor:pointer;background:var(--bg);color:var(--muted);transition:.12s}
+.chip:hover{border-color:var(--green);color:var(--ink)}
+.note{text-align:center;color:var(--muted);font-size:13px;margin:34px 0 60px}
+.cta-row{text-align:center;margin:40px 0 70px}
+.btn{display:inline-block;padding:15px 30px;border-radius:999px;background:var(--green);color:var(--cream)!important;text-decoration:none;font-weight:600;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="/">← dan.</a><a href="/#book">Book a call</a></div>
+  <div class="banner"><b>Live interactive demo.</b> This agent answers from a small demo knowledge base (fictional business "Nimbus Fitness"). Yours would be trained on your real docs — policies, pricing, FAQs — and hand off to a human when it should.</div>
+
+  <header>
+    <div class="kicker">Demo · AI Support Agent</div>
+    <h1>The agent that answers<br>so you don't have to.</h1>
+    <p class="sub">Ask it anything a customer would. Notice: it answers instantly, cites what it's based on, and escalates cleanly when it doesn't know.</p>
+  </header>
+
+  <div class="chatbox">
+    <div class="chat-head"><div class="dot"></div><b>Nimbus Fitness — Support Agent</b><span>demo</span></div>
+    <div class="log" id="log"></div>
+    <div class="chips">
+      <span class="chip" onclick="ask(this.textContent)">What are your opening hours?</span>
+      <span class="chip" onclick="ask(this.textContent)">How much is a membership?</span>
+      <span class="chip" onclick="ask(this.textContent)">Do you have parking?</span>
+      <span class="chip" onclick="ask(this.textContent)">Can I freeze my membership?</span>
+      <span class="chip" onclick="ask(this.textContent)">Do you sell unicorn rides?</span>
+    </div>
+    <div class="bar">
+      <input id="in" placeholder="Type a customer question…" onkeydown="if(event.key==='Enter')send()"/>
+      <button onclick="send()">Send</button>
+    </div>
+  </div>
+
+  <p class="note">Rule-based preview running in your browser. Production agents use LLMs grounded in your documents — same behaviour, natural language understanding, full conversation logs.</p>
+  <div class="cta-row"><a class="btn" href="/#book">Give your customers instant answers — free call →</a></div>
+</div>
+
+<script>
+const KB=[
+ {k:["hour","open","close","time","when"],a:"We're open Monday–Friday 6am–10pm, weekends 8am–6pm. Public holidays: 8am–1pm."},
+ {k:["price","cost","member","membership","much","plan","fee"],a:"Memberships: Flex $19/week (no lock-in), Standard $15/week (12-month), Student $12/week with ID. All include 24/7 door access after your first month."},
+ {k:["park"],a:"Yes — free on-site parking for 60 cars, plus street parking on Miller St. Entrance is on the ground floor."},
+ {k:["freeze","pause","hold","suspend"],a:"You can freeze your membership for 2–12 weeks, once per 12-month period, at $5/week hold fee. Just reply to your welcome email or ask at the front desk."},
+ {k:["cancel","quit","exit"],a:"Flex plans cancel anytime with 14 days' notice. Standard plans have a 12-month term — early exit is 50% of remaining fees. I can book you a quick call with the membership team if that helps."},
+ {k:["class","yoga","pilates","spin","timetable"],a:"We run 40+ classes weekly: spin, yoga, pilates, HIIT and strength. The full timetable is on the members portal — want me to send the link?"},
+ {k:["trial","free","try"],a:"We offer a 7-day free trial — full gym + 3 classes. Bring photo ID on your first visit."},
+ {k:["trainer","pt","coach","personal"],a:"Personal training starts at $65/session, with 5- and 10-pack discounts. All trainers are certified — profiles are on the wall by reception."},
+ {k:["shower","towel","lock"],a:"Showers, lockers and free towel service are included with every membership. Lockers work with your access fob."}
+];
+const ESC="I want to give you an accurate answer rather than a guess — this one needs a human. I've flagged it to the Nimbus team and they'll get back to you today. Anything else I can help with meanwhile?";
+const log=document.getElementById("log");
+function add(html,cls){const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;}
+add("Hey! I'm the Nimbus support agent 👋 Ask me about hours, pricing, parking, classes — anything a member would.","bot");
+add("Demo knowledge base loaded — 9 policy documents","sys");
+let n=0;
+function ask(q){document.getElementById("in").value=q;send();}
+function send(){
+  const inp=document.getElementById("in");const q=inp.value.trim();if(!q)return;inp.value="";
+  add(q.replace(/</g,"&lt;"),"user");
+  const t="…";const think=document.createElement("div");think.className="msg bot";think.textContent=t;log.appendChild(think);log.scrollTop=log.scrollHeight;
+  setTimeout(()=>{think.remove();reply(q.toLowerCase());},500+Math.random()*400);
+}
+function reply(q){
+  n++;
+  let best=null,score=0;
+  for(const e of KB){let s=0;for(const k of e.k)if(q.includes(k))s++;if(s>score){score=s;best=e;}}
+  if(score>0){add(best.a+"<br><small style='opacity:.55'>based on: Nimbus policy docs</small>","bot");}
+  else if(/human|staff|person|manager|complain|refund|broken|broken equipment/.test(q)){
+    add("That's one for a human — I've escalated it to the Nimbus team with our chat transcript. You'll hear back today.<br><small style='opacity:.55'>escalation logged · ticket #NF-"+(1200+n)+"</small>","bot");
+  }
+  else{add(ESC+"<br><small style='opacity:.55'>no confident match · escalated</small>","bot");}
+}
+</script>
+</body>
+</html>
