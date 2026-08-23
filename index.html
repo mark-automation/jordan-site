@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Jordan Lacandula | AI Automation &amp; Agent Systems for Business</title>
-<meta name="description" content="AI agents and workflow automation for small businesses — support, lead qualification, scheduling, and back-office ops, handled automatically. Book a free discovery call." />
-<meta property="og:title" content="Jordan Lacandula — AI Automation for Business" />
-<meta property="og:description" content="I build AI agents and automated workflows that handle support, leads, scheduling, and back-office operations. Book a free discovery call." />
+<title>Dan — AI Automation That Runs Your Business</title>
+<meta name="description" content="AI agents and automated workflows that handle support, leads, booking, and back-office ops — around the clock. Book a free discovery call." />
+<meta property="og:title" content="Dan — AI Automation That Runs Your Business" />
+<meta property="og:description" content="I build AI systems that answer your customers, qualify your leads, and book your appointments — automatically. Book a free discovery call." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jordan.nekobiz.com/" />
 <!-- Google tag (gtag.js) -->
@@ -15,499 +15,741 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-930QGPRC27');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --bg: #070A0F;
-    --text: #EAF0FF;
-    --muted: rgba(234,240,255,0.65);
-    --border: rgba(255,255,255,0.08);
-    --accent: #6C7CFF;
-    --accent2: #00D4FF;
-    --panel: rgba(255,255,255,0.03);
+    --bg: #050507;
+    --text: #F2F4FA;
+    --muted: rgba(242,244,250,0.6);
+    --faint: rgba(242,244,250,0.35);
+    --border: rgba(255,255,255,0.09);
+    --accent: #7C5CFF;
+    --accent2: #00E0FF;
+    --grad: linear-gradient(100deg, #7C5CFF 0%, #00E0FF 100%);
+    --panel: rgba(255,255,255,0.035);
+    --glass: rgba(255,255,255,0.05);
+    --danger: #FF6B7A;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    background:
-        radial-gradient(circle at 20% 0%, rgba(108,124,255,0.12), transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(0,212,255,0.10), transparent 45%),
-        var(--bg);
+    background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    font-family: "Inter", sans-serif;
+    line-height: 1.65;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 22px;
+h1, h2, h3, .wordmark { font-family: "Space Grotesk", sans-serif; }
+
+/* AURORA BACKGROUND */
+.aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
 }
+.aurora::before, .aurora::after {
+    content: "";
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.16;
+}
+.aurora::before {
+    background: var(--accent);
+    top: -25vw;
+    left: -15vw;
+    animation: drift1 26s ease-in-out infinite alternate;
+}
+.aurora::after {
+    background: var(--accent2);
+    top: -10vw;
+    right: -20vw;
+    animation: drift2 32s ease-in-out infinite alternate;
+}
+@keyframes drift1 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(12vw, 8vw) scale(1.15); }
+}
+@keyframes drift2 {
+    from { transform: translate(0, 0) scale(1.1); }
+    to   { transform: translate(-10vw, 12vw) scale(0.95); }
+}
+
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(5,5,7,0.7);
+    border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wordmark {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    color: var(--text);
+}
+.wordmark span {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.nav-cta {
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--glass);
+    transition: 0.2s;
+}
+.nav-cta:hover {
+    border-color: rgba(124,92,255,0.6);
+    box-shadow: 0 0 24px rgba(124,92,255,0.25);
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.btn-primary {
+    background: var(--grad);
+    color: #050507;
+    box-shadow: 0 4px 30px rgba(124,92,255,0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(124,92,255,0.5); }
+.btn-ghost {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--glass);
+}
+.btn-ghost:hover { border-color: rgba(0,224,255,0.5); }
 
 /* HERO */
 .hero {
-    padding: 80px 0 50px;
-    border-bottom: 1px solid var(--border);
+    padding: 180px 0 90px;
 }
-
-h1 {
-    font-size: 46px;
-    letter-spacing: -1px;
-}
-
-.subtitle {
-    margin-top: 14px;
-    font-size: 16px;
-    color: var(--muted);
-    max-width: 720px;
-}
-
-.tag {
-    display: inline-block;
+.hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 12px;
-    padding: 6px 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
     border: 1px solid var(--border);
     border-radius: 999px;
+    padding: 7px 14px;
+    background: var(--panel);
+    margin-bottom: 28px;
+}
+.hero .eyebrow .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent2);
+    box-shadow: 0 0 10px var(--accent2);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    font-weight: 700;
+    max-width: 820px;
+}
+.hero h1 em {
+    font-style: normal;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.hero .sub {
+    margin-top: 24px;
+    font-size: 18px;
     color: var(--muted);
-    margin-bottom: 18px;
+    max-width: 640px;
+    font-weight: 300;
+}
+.hero .cta-row {
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.chips {
+    margin-top: 44px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.chip {
+    font-size: 13px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
     background: var(--panel);
 }
+.chip b { color: var(--text); font-weight: 600; }
 
-/* CTA */
-.cta {
-    margin-top: 24px;
+/* TICKER */
+.ticker {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    padding: 18px 0;
+    background: rgba(255,255,255,0.015);
 }
-
-.btn {
-    display: inline-block;
-    padding: 11px 14px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    margin-right: 10px;
+.ticker-track {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+    width: max-content;
+}
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.ticker-track span {
+    font-family: "Space Grotesk", sans-serif;
     font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--faint);
 }
-
-.btn.primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: black;
-    border: none;
-    font-weight: 600;
+.ticker-track span::after {
+    content: "◆";
+    margin-left: 48px;
+    color: var(--accent);
+    font-size: 10px;
+    vertical-align: middle;
 }
 
 /* SECTIONS */
-.section {
-    margin-top: 60px;
-}
-
-h2 {
-    font-size: 18px;
-    margin-bottom: 18px;
-    letter-spacing: 0.2px;
-}
-
-.lede {
-    color: var(--muted);
-    max-width: 720px;
-    margin-bottom: 18px;
-    font-size: 15px;
-}
-
-/* PAIN LIST */
-.pains {
-    list-style: none;
-    max-width: 720px;
-}
-
-.pains li {
-    padding: 10px 0 10px 26px;
-    position: relative;
-    color: var(--text);
-    opacity: 0.9;
-    font-size: 15px;
-    border-bottom: 1px dashed var(--border);
-}
-
-.pains li:last-child { border-bottom: none; }
-
-.pains li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
+section { padding: 90px 0; }
+.sec-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
     color: var(--accent2);
-}
-
-.punch {
-    margin-top: 16px;
-    font-size: 16px;
+    margin-bottom: 14px;
     font-weight: 600;
 }
+h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: -1px;
+    line-height: 1.15;
+    max-width: 700px;
+}
+.sec-lede {
+    margin-top: 16px;
+    color: var(--muted);
+    max-width: 640px;
+    font-size: 16px;
+}
 
-/* GRID */
-.grid {
+/* PROBLEM */
+.pains {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 900px;
+}
+.pain {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--panel);
+    font-size: 15px;
+}
+.pain .x {
+    color: var(--danger);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.punch {
+    margin-top: 32px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    max-width: 760px;
+}
+.punch em {
+    font-style: normal;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* SERVICES — numbered rows */
+.services {
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+}
+.svc {
+    display: grid;
+    grid-template-columns: 90px 1fr 1.3fr;
+    gap: 28px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+    transition: 0.25s;
+}
+.svc:hover { background: linear-gradient(90deg, rgba(124,92,255,0.06), transparent); }
+.svc .num {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+    color: var(--faint);
+    letter-spacing: 1px;
+}
+.svc h3 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+.svc p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* USE CASES */
+.cases {
+    margin-top: 48px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    padding: 16px;
-    border-radius: 12px;
-    transition: 0.2s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(108,124,255,0.35);
-}
-
-.card h3 {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.card .kicker {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent2);
-    margin-bottom: 6px;
-}
-
-.card p {
-    font-size: 13px;
-    color: var(--muted);
-    flex-grow: 1;
-}
-
-.card .card-link {
-    margin-top: 12px;
-    font-size: 13px;
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.card .card-link:hover { color: var(--accent2); }
-
-/* STEPS */
-.steps {
-    counter-reset: step;
-    max-width: 720px;
-}
-
-.step {
-    display: flex;
     gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
 }
+.case {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px 24px;
+    background: var(--glass);
+    transition: 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+.case::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--grad);
+    opacity: 0;
+    transition: 0.25s;
+}
+.case:hover { transform: translateY(-4px); border-color: rgba(124,92,255,0.4); }
+.case:hover::before { opacity: 1; }
+.case .glyph {
+    font-size: 22px;
+    margin-bottom: 14px;
+    display: block;
+}
+.case h3 { font-size: 17px; margin-bottom: 8px; }
+.case p { font-size: 13.5px; color: var(--muted); }
 
-.step:last-child { border-bottom: none; }
-
+/* PROCESS */
+.steps {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+}
+.steps::before {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0.4;
+}
+.step {
+    padding: 0 26px;
+    position: relative;
+    text-align: left;
+}
 .step .num {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: black;
-    font-weight: 700;
-    font-size: 14px;
+    background: var(--bg);
+    border: 1px solid rgba(124,92,255,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 30px rgba(124,92,255,0.25);
+}
+.step h3 { font-size: 18px; margin-bottom: 8px; }
+.step p { font-size: 14px; color: var(--muted); }
+.step .free {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    font-weight: 600;
 }
 
-.step h3 {
-    font-size: 14px;
-    margin-bottom: 2px;
+/* PROOF STRIP */
+.proof {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
 }
-
-.step p {
-    font-size: 13px;
-    color: var(--muted);
-}
-
-/* STACK */
-.stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.pill {
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 999px;
+.proof .item {
     border: 1px solid var(--border);
-    color: var(--muted);
+    border-radius: 14px;
+    padding: 22px;
+    background: var(--panel);
 }
+.proof .big {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 6px;
+}
+.proof .item p { font-size: 13.5px; color: var(--muted); }
 
-/* CALENDLY */
-.calendly {
-    margin-top: 20px;
-    border-radius: 12px;
+/* BOOKING */
+.booking {
+    text-align: center;
+}
+.booking h2 { margin: 0 auto; }
+.booking .sec-lede { margin-left: auto; margin-right: auto; }
+.calendly-box {
+    margin-top: 44px;
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(124,92,255,0.3);
+    box-shadow: 0 0 60px rgba(124,92,255,0.12);
+    text-align: left;
+}
+.assure {
+    margin-top: 22px;
+    font-size: 13.5px;
+    color: var(--faint);
 }
 
+/* FOOTER */
 footer {
-    margin-top: 80px;
-    padding-top: 24px;
     border-top: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--muted);
+    padding: 36px 0 44px;
+}
+.foot-inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--faint);
 }
+.foot-inner a { color: var(--muted); text-decoration: none; }
+.foot-inner a:hover { color: var(--accent2); }
 
-footer a { color: var(--muted); }
+/* REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
 
 /* MOBILE */
-@media(max-width: 900px){
-    .grid { grid-template-columns: 1fr; }
-    h1 { font-size: 36px; }
+@media(max-width: 900px) {
+    .hero { padding: 140px 0 60px; }
+    .pains { grid-template-columns: 1fr; }
+    .cases { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 40px; }
+    .steps::before { display: none; }
+    .proof { grid-template-columns: 1fr; }
+    .svc { grid-template-columns: 50px 1fr; }
+    .svc p { grid-column: 2; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="aurora"></div>
 
-    <!-- HERO -->
-    <div class="hero">
-        <div class="tag">AI Automation · Agents · Workflow Integration</div>
-
-        <h1>Your busywork, handled by systems that don't sleep.</h1>
-
-        <div class="subtitle">
-            I'm Jordan Lacandula. I build AI agents and automated workflows that run
-            support, lead follow-up, scheduling, and back-office operations for small
-            businesses — so your team spends time on work that actually needs a human.
-            Building production systems since 2013.
-        </div>
-
-        <div class="cta">
-            <a class="btn primary" href="#book">Book a Free Discovery Call</a>
-            <a class="btn" href="#services">What I Automate</a>
-        </div>
+<nav>
+    <div class="nav-inner">
+        <a class="wordmark" href="#top">dan<span>.</span>ai</a>
+        <a class="nav-cta" href="#book">Book a free call</a>
     </div>
+</nav>
 
-    <!-- PAIN -->
-    <div class="section">
-        <h2>If this sounds like your week…</h2>
-
-        <ul class="pains">
-            <li>Leads go cold because nobody followed up within the hour.</li>
-            <li>Hours lost to copy-pasting data between apps, sheets, and inboxes.</li>
-            <li>Support questions answered one at a time, by hand, after hours.</li>
-            <li>Appointments booked over email, then forgotten until they no-show.</li>
-            <li>Reports and documents assembled manually every single week.</li>
-        </ul>
-
-        <div class="punch">
-            Every one of these is an automation problem. I build the system that makes it stop.
-        </div>
+<header class="hero wrap" id="top">
+    <div class="eyebrow"><span class="dot"></span> AI Automation Studio</div>
+    <h1>Your business, <em>on autopilot.</em></h1>
+    <p class="sub">
+        I'm Dan. I build AI systems that answer your customers, qualify your leads,
+        book your appointments, and process your paperwork — around the clock,
+        while you focus on running the business.
+    </p>
+    <div class="cta-row">
+        <a class="btn btn-primary" href="#book">Book a Free Discovery Call</a>
+        <a class="btn btn-ghost" href="#services">What I automate</a>
     </div>
-
-    <!-- SERVICES -->
-    <div class="section" id="services">
-        <h2>What I Build For You</h2>
-
-        <div class="grid">
-            <div class="card">
-                <div class="kicker">Service 01</div>
-                <h3>AI Agent Systems</h3>
-                <p>
-                    Support, sales, and booking agents that answer customers, qualify
-                    leads, and schedule appointments 24/7 — in your tone of voice,
-                    escalating to a human only when it matters.
-                </p>
-                <a class="card-link" href="#book">Automate this →</a>
-            </div>
-
-            <div class="card">
-                <div class="kicker">Service 02</div>
-                <h3>Workflow &amp; Back-Office Automation</h3>
-                <p>
-                    Pipelines that move data between the tools you already use — CRM,
-                    email, spreadsheets, invoicing, docs — with zero copy-paste and
-                    full audit trails.
-                </p>
-                <a class="card-link" href="#book">Automate this →</a>
-            </div>
-
-            <div class="card">
-                <div class="kicker">Service 03</div>
-                <h3>Reliable by Design</h3>
-                <p>
-                    Automation you can actually trust: monitoring, error handling, and
-                    a decade of production engineering behind every deployment. When
-                    something breaks, it gets found and fixed — before you notice.
-                </p>
-                <a class="card-link" href="#book">Talk reliability →</a>
-            </div>
-        </div>
+    <div class="chips">
+        <span class="chip"><b>Since 2013</b> — production systems</span>
+        <span class="chip"><b>24/7</b> — agents that don't sleep</span>
+        <span class="chip"><b>Remote</b> — AU/US-friendly hours</span>
     </div>
+</header>
 
-    <!-- USE CASES -->
-    <div class="section" id="use-cases">
-        <h2>In Practice</h2>
-        <p class="lede">
-            Real automations I deploy. Yours will be shaped around how your business actually works.
-        </p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Customer Support Agent</h3>
-                <p>Answers customer questions instantly, pulls from your knowledge base, escalates edge cases to your team.</p>
-                <a class="card-link" href="#book">Book a call →</a>
-            </div>
-
-            <div class="card">
-                <h3>Lead Qualification</h3>
-                <p>Captures every inquiry, asks qualifying questions, routes hot prospects straight into your pipeline.</p>
-                <a class="card-link" href="#book">Book a call →</a>
-            </div>
-
-            <div class="card">
-                <h3>Appointment Booking</h3>
-                <p>Conversational scheduling synced to your calendar, with automatic confirmations and reminders.</p>
-                <a class="card-link" href="#book">Book a call →</a>
-            </div>
-
-            <div class="card">
-                <h3>Content Pipeline</h3>
-                <p>Blogs, emails, and social posts drafted and routed through review on autopilot.</p>
-                <a class="card-link" href="#book">Book a call →</a>
-            </div>
-
-            <div class="card">
-                <h3>Document Processing</h3>
-                <p>Extracts, classifies, and files information from PDFs, invoices, and forms without human touch.</p>
-                <a class="card-link" href="#book">Book a call →</a>
-            </div>
-
-            <div class="card">
-                <h3>Custom Workflow</h3>
-                <p>Something specific to your operation? We map it together and automate the slow parts.</p>
-                <a class="card-link" href="#book">Describe yours →</a>
-            </div>
-        </div>
+<!-- TICKER -->
+<div class="ticker">
+    <div class="ticker-track">
+        <span>Support Agents</span><span>Lead Qualification</span><span>Appointment Booking</span><span>Document Processing</span><span>Content Pipelines</span><span>Workflow Integration</span><span>Back-Office Automation</span>
+        <span>Support Agents</span><span>Lead Qualification</span><span>Appointment Booking</span><span>Document Processing</span><span>Content Pipelines</span><span>Workflow Integration</span><span>Back-Office Automation</span>
     </div>
-
-    <!-- PROCESS -->
-    <div class="section" id="process">
-        <h2>How It Works</h2>
-
-        <div class="steps">
-            <div class="step">
-                <div class="num">1</div>
-                <div>
-                    <h3>Free discovery call — 30 minutes</h3>
-                    <p>We map the one workflow costing you the most hours. You leave with a clear automation plan, whether we work together or not.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="num">2</div>
-                <div>
-                    <h3>Build &amp; integrate</h3>
-                    <p>I design and ship the system into your existing stack — your tools, your data, minimal disruption.</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="num">3</div>
-                <div>
-                    <h3>Run &amp; maintain</h3>
-                    <p>Monitored in production, tuned over time, and supported long-term. It keeps working while you don't think about it.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PROOF -->
-    <div class="section" id="proof">
-        <h2>Built in Production, Not Slideware</h2>
-        <p class="lede">
-            Over a decade of shipping systems that have to stay up. That's the difference
-            between a demo and infrastructure your business can lean on.
-        </p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Haki Platform Infrastructure</h3>
-                <p>End-to-end automation for service provisioning and deployment on live production infrastructure.</p>
-            </div>
-
-            <div class="card">
-                <h3>Distributed Real-Time Backend</h3>
-                <p>Core architecture for a multiplayer simulation platform — low-latency state sync at scale.</p>
-            </div>
-
-            <div class="card">
-                <h3>Performance Engineering</h3>
-                <p>C++ DirectX 11 rendering engine — low-level optimization discipline that carries into every system I build.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- STACK -->
-    <div class="section">
-        <h2>Tools &amp; Stack</h2>
-        <div class="stack">
-            <span class="pill">n8n</span>
-            <span class="pill">LLM / AI Agents</span>
-            <span class="pill">Python</span>
-            <span class="pill">TypeScript</span>
-            <span class="pill">Node.js</span>
-            <span class="pill">APIs &amp; Integrations</span>
-            <span class="pill">CI/CD</span>
-            <span class="pill">Cloud Ops</span>
-        </div>
-    </div>
-
-    <!-- BOOKING -->
-    <div class="section" id="book">
-        <h2>Book Your Free Discovery Call</h2>
-
-        <p class="lede">
-            30 minutes. We find the workflow eating most of your week and map what
-            automating it looks like — yours to keep, no strings attached.
-        </p>
-
-        <div class="calendly">
-            <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/keroro/30min?hide_gdpr_banner=1"
-                 style="min-width:320px;height:700px;"></div>
-            <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        </div>
-    </div>
-
-    <footer>
-        <span>Jordan Lacandula — AI Automation for Business</span>
-        <span><a href="mailto:jordanlacandula@hotmail.com">jordanlacandula@hotmail.com</a> · Remote · AU/US-friendly hours</span>
-    </footer>
-
 </div>
+
+<!-- PROBLEM -->
+<section class="wrap reveal">
+    <div class="sec-label">The Problem</div>
+    <h2>Manual work is a tax you pay every single day.</h2>
+    <div class="pains">
+        <div class="pain"><span class="x">✕</span> Leads going cold because nobody replied within the hour</div>
+        <div class="pain"><span class="x">✕</span> Hours burned copy-pasting between apps and inboxes</div>
+        <div class="pain"><span class="x">✕</span> Support tickets answered one by one, after hours</div>
+        <div class="pain"><span class="x">✕</span> Appointments booked over email, then no-showed</div>
+        <div class="pain"><span class="x">✕</span> Invoices and forms re-typed by hand</div>
+        <div class="pain"><span class="x">✕</span> Reports rebuilt manually every week</div>
+    </div>
+    <div class="punch">
+        Every one of those is a system that should run itself. <em>I build it.</em>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="wrap reveal" id="services">
+    <div class="sec-label">Services</div>
+    <h2>Systems I build for your business.</h2>
+
+    <div class="services">
+        <div class="svc">
+            <div class="num">/01</div>
+            <h3>AI Agent Systems</h3>
+            <p>
+                Support, sales, and booking agents trained on your business. They reply
+                in seconds, qualify every inquiry, and schedule straight into your
+                calendar — handing off to a human only when judgment is genuinely needed.
+            </p>
+        </div>
+        <div class="svc">
+            <div class="num">/02</div>
+            <h3>Workflow Automation</h3>
+            <p>
+                Your tools, wired together. CRMs, inboxes, spreadsheets, invoicing, and
+                docs connected by pipelines that move data automatically — with logging
+                and error handling, not fragile scripts.
+            </p>
+        </div>
+        <div class="svc">
+            <div class="num">/03</div>
+            <h3>Automation Rescue</h3>
+            <p>
+                Already tried automation and it broke, or never worked? I audit what you
+                have, salvage what's fixable, rebuild what isn't — and leave you with
+                something monitored and maintained.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- USE CASES -->
+<section class="wrap reveal" id="use-cases">
+    <div class="sec-label">In Practice</div>
+    <h2>What that looks like on the ground.</h2>
+    <p class="sec-lede">Every build is shaped around how your business actually works — these are the shapes it usually takes.</p>
+
+    <div class="cases">
+        <div class="case">
+            <span class="glyph">💬</span>
+            <h3>Customer Support Agent</h3>
+            <p>Answers instantly from your own knowledge base, 24/7. Escalates the edge cases to your team with full context.</p>
+        </div>
+        <div class="case">
+            <span class="glyph">🎯</span>
+            <h3>Lead Capture &amp; Qualification</h3>
+            <p>Every inquiry gets an intelligent response in seconds, qualified and routed into your pipeline while it's warm.</p>
+        </div>
+        <div class="case">
+            <span class="glyph">📅</span>
+            <h3>Appointments &amp; Booking</h3>
+            <p>Conversational scheduling synced to your calendar, with confirmations and reminders that cut no-shows.</p>
+        </div>
+        <div class="case">
+            <span class="glyph">📄</span>
+            <h3>Documents &amp; Data Entry</h3>
+            <p>Invoices, PDFs, and forms read, classified, and filed into the right system — no manual re-typing.</p>
+        </div>
+        <div class="case">
+            <span class="glyph">✍️</span>
+            <h3>Content Pipelines</h3>
+            <p>Blogs, emails, and social posts drafted on-brand and on schedule — you approve before anything ships.</p>
+        </div>
+        <div class="case">
+            <span class="glyph">🧩</span>
+            <h3>Custom Workflow</h3>
+            <p>Something specific to your operation? We map it together on a call and automate the slow parts.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="wrap reveal" id="process">
+    <div class="sec-label">How It Works</div>
+    <h2>From busywork to autopilot in three steps.</h2>
+
+    <div class="steps">
+        <div class="step">
+            <div class="num">1</div>
+            <h3>Discovery call</h3>
+            <p>We map the one process eating most of your team's time. You leave with a clear automation plan — even if we never work together.</p>
+            <span class="free">Free · 30 min</span>
+        </div>
+        <div class="step">
+            <div class="num">2</div>
+            <h3>Build &amp; test</h3>
+            <p>A working system connected to your real tools and tested against your real workload — not a slide deck.</p>
+        </div>
+        <div class="step">
+            <div class="num">3</div>
+            <h3>Go live, stay live</h3>
+            <p>Handover with training for your team, or fully managed — monitored in production and improved over time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROOF -->
+<section class="wrap reveal" id="proof">
+    <div class="sec-label">Why Trust the Systems</div>
+    <h2>Built in production, not slideware.</h2>
+
+    <div class="proof">
+        <div class="item">
+            <div class="big">10+ yrs</div>
+            <p>Shipping systems that have to stay up — infrastructure, deployments, incident response.</p>
+        </div>
+        <div class="item">
+            <div class="big">Live infra</div>
+            <p>End-to-end automation for real production platforms: provisioning, CI/CD, cloud operations.</p>
+        </div>
+        <div class="item">
+            <div class="big">Deep stack</div>
+            <p>Distributed systems and performance engineering under the hood — reliability is the default, not the upsell.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING -->
+<section class="wrap booking reveal" id="book">
+    <div class="sec-label">Get Started</div>
+    <h2>Book your free discovery call.</h2>
+    <p class="sec-lede">
+        30 minutes. We find the workflow costing you the most hours and map what
+        automating it looks like — the plan is yours to keep either way.
+    </p>
+
+    <div class="calendly-box">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/keroro/30min?hide_gdpr_banner=1"
+             style="min-width:320px;height:700px;"></div>
+        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+
+    <div class="assure">No pressure, no obligation — if automation isn't a fit, I'll tell you straight.</div>
+</section>
+
+<footer>
+    <div class="wrap foot-inner">
+        <span class="wordmark" style="font-size:16px;">dan<span>.</span>ai</span>
+        <span>AI automation for small business · Remote · AU/US-friendly hours</span>
+        <a href="#book">Book a call ↑</a>
+    </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
