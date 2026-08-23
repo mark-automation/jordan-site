@@ -1,189 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://mark-automation.github.io/jordan-site/">
-  <title>Jordan Lacandula — AI Automation Systems, Built &amp; Deployed For You</title>
-<meta name="description" content="Done-for-you AI automation: lead-gen engines, support agents, workflow rescue. Fixed prices, 2-week builds, you own everything.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AI Automation Systems — Built & Deployed For You">
-<meta property="og:description" content="Lead-gen engines, support agents, workflow rescue. Fixed prices. 2-week builds.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='90' font-size='90'>⚡</text></svg>">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jordan Lacandula — AI Automation for Your Business</title>
+<meta name="description" content="I build AI systems that answer customers, qualify leads, book appointments, and process documents — automatically. Book a free 20-minute automation call." />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-930QGPRC27"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-930QGPRC27');
+</script>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Jordan Lacandula — AI Automation for Your Business" />
+<meta property="og:description" content="AI systems that answer customers, qualify leads, book appointments, and process documents — automatically, 24/7." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jordan.nekobiz.com/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#0b0d12;--card:#12151d;--line:#232838;--txt:#e6e9f0;--dim:#9aa3b5;--acc:#7c3aed;--acc2:#a78bfa;--ok:#34d399}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;background:rgba(11,13,18,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-.brand{font-weight:700;font-size:1.05rem}.brand span{color:var(--acc2)}
-nav a.cta-sm{padding:8px 18px;font-size:.9rem}
-a.cta-sm,button{background:var(--acc);color:#fff;text-decoration:none;border:none;border-radius:8px;cursor:pointer;font-weight:600}
-a.cta-sm:hover{filter:brightness(1.15)}
-.hero{text-align:center;padding:90px 0 60px}
-.hero h1{font-size:clamp(1.9rem,4.5vw,3.1rem);line-height:1.15;max-width:760px;margin:0 auto}
-.hero h1 em{font-style:normal;color:var(--acc2)}
-.hero p.sub{color:var(--dim);font-size:1.12rem;max-width:620px;margin:20px auto 32px}
-.btn-big{display:inline-block;padding:14px 32px;font-size:1.05rem;border-radius:10px}
-.trust{margin-top:28px;color:var(--dim);font-size:.88rem}
-.trust b{color:var(--txt)}
-section{padding:70px 0;border-top:1px solid var(--line)}
-h2{font-size:1.75rem;margin-bottom:8px;text-align:center}
-p.lead{text-align:center;color:var(--dim);max-width:560px;margin:0 auto 44px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column}
-.card h3{font-size:1.15rem;margin-bottom:6px}
-.price{font-size:1.9rem;font-weight:800;margin:10px 0 2px}
-.price small{font-size:.85rem;color:var(--dim);font-weight:400}
-.card ul{list-style:none;margin:16px 0 24px;flex:1}
-.card li{padding:6px 0 6px 26px;position:relative;color:var(--dim);font-size:.95rem}
-.card li:before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
-.card .pick{text-align:center;padding:12px;border-radius:9px;text-decoration:none;font-weight:600;display:block}
-.card.hot{border-color:var(--acc);box-shadow:0 0 40px rgba(124,58,237,.18)}
-.tag{display:inline-block;background:rgba(124,58,237,.15);color:var(--acc2);font-size:.72rem;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:99px;margin-bottom:12px}
-.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.pf{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
-.pf .k{color:var(--acc2);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
-.pf h3{margin:8px 0}
-.pf p{color:var(--dim);font-size:.95rem}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:s}
-.step{position:relative;padding-left:52px}
-.step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:2px;width:36px;height:36px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800}
-.step h3{font-size:1.02rem;margin-bottom:4px}
-.step p{color:var(--dim);font-size:.92rem}
-.demos{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.demos a{border:1px solid var(--line);background:var(--card);padding:10px 20px;border-radius:9px;color:var(--txt);text-decoration:none;font-size:.93rem}
-.demos a:hover{border-color:var(--acc)}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:12px}
-.faq summary{cursor:pointer;font-weight:600}
-.faq p{color:var(--dim);margin-top:10px;font-size:.95rem}
-.final{text-align:center;padding:80px 0}
-.final h2{font-size:2rem}
-.final p{color:var(--dim);margin:14px auto 30px;max-width:480px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-footer a{color:var(--dim)}
-@media(max-width:640px){.hero{padding:60px 0 40px}section{padding:50px 0}}
+:root {
+    --bg: #070A0F;
+    --text: #EAF0FF;
+    --muted: rgba(234,240,255,0.65);
+    --border: rgba(255,255,255,0.08);
+    --accent: #6C7CFF;
+    --accent2: #00D4FF;
+    --panel: rgba(255,255,255,0.03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(108,124,255,0.12), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(0,212,255,0.10), transparent 45%),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 22px;
+}
+
+/* HERO */
+.hero {
+    padding: 80px 0 50px;
+    border-bottom: 1px solid var(--border);
+}
+
+h1 {
+    font-size: 46px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+}
+
+h1 .grad {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    margin-top: 14px;
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 720px;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    background: var(--panel);
+}
+
+/* CTA */
+.cta {
+    margin-top: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+
+/* SECTIONS */
+.section {
+    margin-top: 60px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+    letter-spacing: 0.2px;
+}
+
+.section-sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: -12px;
+    margin-bottom: 22px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(108,124,255,0.35);
+}
+
+.card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 13px;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+.card .card-tag {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    opacity: 0.85;
+    margin-bottom: 6px;
+}
+
+/* STEPS */
+.steps {
+    counter-reset: step;
+}
+
+.step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.step:last-child { border-bottom: none; }
+
+.step .num {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.step p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* STACK */
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+}
+
+/* BOOKING */
+.book-panel {
+    background: linear-gradient(135deg, rgba(108,124,255,0.10), rgba(0,212,255,0.06));
+    border: 1px solid rgba(108,124,255,0.35);
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: center;
+}
+
+.book-panel h2 {
+    margin-bottom: 10px;
+}
+
+.book-panel p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 520px;
+    margin: 0 auto 22px;
+}
+
+.book-panel .btn {
+    font-size: 16px;
+    padding: 14px 26px;
+    margin: 0;
+}
+
+.book-fallback {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.book-fallback a {
+    color: var(--accent2);
+    text-decoration: none;
+}
+
+footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* MOBILE */
+@media(max-width: 900px){
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 34px; }
+}
 </style>
 </head>
 <body>
 
-<header><div class="wrap nav-wrap">
-<nav>
-<div class="brand">Jordan<span>.builds</span></div>
-<a class="cta-sm" href="#contact">Get a quote</a>
-</nav>
-</div></header>
+<div class="container">
 
-<main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+        <div class="tag">AI Automation Studio</div>
 
-<div class="hero">
-<h1>I build <em>AI automation systems</em> that run the boring parts of your business</h1>
-<p class="sub">Lead generation, customer support agents, and workflow fixes — designed, built, and handed over in two weeks. Fixed prices. You own everything.</p>
-<a class="btn-big cta-sm" href="#contact">Get a free scoping call →</a>
-<p class="trust">Trusted by operators in <b>AU & US</b> · Builds delivered for medical supply trading, diagnostic clinics & SaaS platforms</p>
+        <h1>Put your busywork<br><span class="grad">on autopilot.</span></h1>
+
+        <div class="subtitle">
+            I build AI systems that answer your customers, qualify your leads, book your
+            appointments, and process your documents — automatically, around the clock,
+            while you focus on running the business.
+        </div>
+
+        <div class="cta">
+            <a class="btn primary" href="#book">Book a Free Automation Call</a>
+            <a class="btn" href="#demos">See It Working Live</a>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section">
+        <h2>What I Automate</h2>
+        <p class="section-sub">Every system is built around your actual tools and workflow — not a template.</p>
+
+        <div class="grid">
+            <div class="card">
+                <span class="card-tag">Leads</span>
+                <h3>Lead Capture &amp; Qualification</h3>
+                <p>Every inquiry gets an instant, intelligent response. Leads are qualified,
+                followed up, and routed into your pipeline while they're still warm.</p>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Support</span>
+                <h3>AI Customer Support</h3>
+                <p>An agent trained on your own knowledge base answers customer questions
+                24/7 and escalates the edge cases to your team.</p>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Bookings</span>
+                <h3>Appointments &amp; Scheduling</h3>
+                <p>Conversational booking synced straight into your calendar, with automated
+                confirmations and reminders that cut no-shows.</p>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Documents</span>
+                <h3>Document &amp; Data Processing</h3>
+                <p>Invoices, PDFs, forms, and emails are read, classified, and routed into
+                the right system automatically — no manual data entry.</p>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Content</span>
+                <h3>Content Pipelines</h3>
+                <p>Blogs, emails, and social posts drafted on-brand and on schedule through
+                AI workflows you approve before anything ships.</p>
+            </div>
+
+            <div class="card">
+                <span class="card-tag">Rescue</span>
+                <h3>Workflow Rescue</h3>
+                <p>Already tried automation and it broke, or never worked? I audit what you
+                have, fix what's salvageable, rebuild what isn't.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="section">
+        <h2>How It Works</h2>
+
+        <div class="steps">
+            <div class="step">
+                <div class="num">1</div>
+                <div>
+                    <h3>Book a free 20-minute call</h3>
+                    <p>We map the one process eating most of your team's time. You leave with
+                    a clear picture of what can be automated — even if we never work together.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="num">2</div>
+                <div>
+                    <h3>I build and test it</h3>
+                    <p>A working system connected to your real tools and tested against your
+                    real workload — not a slide deck.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="num">3</div>
+                <div>
+                    <h3>You approve and go live</h3>
+                    <p>Handover with training for your team, or ongoing management if you'd
+                    rather not think about it again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROOF -->
+    <div class="section">
+        <h2>Built in Production</h2>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Clinic Storage Platform</h3>
+                <p>Full ordering and inventory system for a medical supplies trading
+                business — from manual tracking to a self-serve platform.</p>
+            </div>
+
+            <div class="card">
+                <h3>Haki — nekobiz.com</h3>
+                <p>A platform of deploy-ready AI agents and workflows: provisioning,
+                deployment, and backend automation with under-5-minute launches.</p>
+            </div>
+
+            <div class="card">
+                <h3>Marketing Automation Engine</h3>
+                <p>Facebook and TikTok content/ad pipelines running end-to-end for a
+                trading company — brief in, scheduled campaign out.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DEMOS -->
+    <div class="section" id="demos">
+        <h2>Try It Live</h2>
+        <p class="section-sub">Real working demos — click through and talk to them.</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>AI Support Agent</h3>
+                <p>Answers customer questions, retrieves knowledge, and escalates
+                conversations when needed.</p>
+                <div class="cta" style="margin-top:14px;">
+                    <a class="btn" href="/demo/support-agent">Try Demo →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Lead Qualification Agent</h3>
+                <p>Captures leads, asks qualifying questions, and routes prospects into
+                the sales pipeline automatically.</p>
+                <div class="cta" style="margin-top:14px;">
+                    <a class="btn" href="/demo/lead-agent">Try Demo →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Appointment Scheduling Agent</h3>
+                <p>Conversational booking integrated with calendars and automated
+                reminders.</p>
+                <div class="cta" style="margin-top:14px;">
+                    <a class="btn" href="/demo/scheduler">Try Demo →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Content Generation Pipeline</h3>
+                <p>Blogs, emails, and social media content generated through AI-driven
+                workflows.</p>
+                <div class="cta" style="margin-top:14px;">
+                    <a class="btn" href="/demo/content-factory">Try Demo →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Document Processing</h3>
+                <p>Extracts, classifies, and routes information from PDFs and business
+                documents automatically.</p>
+                <div class="cta" style="margin-top:14px;">
+                    <a class="btn" href="/demo/document-processing">Try Demo →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Custom Business Workflow</h3>
+                <p>Something else entirely? Systems designed around your operations, not
+                the other way around.</p>
+                <div class="cta" style="margin-top:14px;">
+                    <a class="btn" href="#book">Discuss Yours →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STACK -->
+    <div class="section">
+        <h2>Under the Hood</h2>
+        <div class="stack">
+            <span class="pill">n8n</span>
+            <span class="pill">OpenAI / Claude / Gemini</span>
+            <span class="pill">Python</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">React</span>
+            <span class="pill">CI/CD</span>
+            <span class="pill">Cloud Infrastructure</span>
+        </div>
+    </div>
+
+    <!-- BOOKING -->
+    <div class="section" id="book">
+        <div class="book-panel">
+            <h2>Book Your Free Automation Call</h2>
+            <p>
+                20 minutes. We'll map the single highest-value process in your business
+                that could be automated this month. No pitch deck, no obligation —
+                walk away with the roadmap either way.
+            </p>
+            <!-- Swap this href for a specific Calendly event-type URL once a client-facing
+                 event (e.g. "Free Automation Audit — 20 min") exists on calendly.com/keroro -->
+            <a class="btn primary" href="https://calendly.com/keroro" target="_blank" rel="noopener">
+                Pick a Time →
+            </a>
+            <div class="book-fallback">
+                Prefer email? <a href="mailto:jordanlacandula@hotmail.com">jordanlacandula@hotmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span>© 2026 Jordan Lacandula · AI Automation Studio</span>
+        <span>Working across US &amp; AU time zones</span>
+    </footer>
+
 </div>
-
-<section id="packages">
-<h2>Fixed-price packages</h2>
-<p class="lead">No hourly billing, no scope creep. One price, clear deliverables, working system in your hands.</p>
-<div class="grid3">
-<div class="card">
-<span class="tag">MOST POPULAR</span>
-<h3>Lead-Gen Engine</h3>
-<div class="price">$1,500 <small>one-time</small></div>
-<ul>
-<li>Automated prospect sourcing (Google Maps / registries)</li>
-<li>Contact enrichment + email verification built in</li>
-<li>Dedupe-aware pipeline into your CRM or Jira</li>
-<li>Daily digest to your inbox or Discord</li>
-<li>Full source code + ops handover doc</li>
-</ul>
-<a class="pick cta-sm" href="#contact">Scope this build</a>
-</div>
-<div class="card">
-<span class="tag">RECURRING VALUE</span>
-<h3>Support Agent</h3>
-<div class="price">$900 <small>+ $200/mo care plan</small></div>
-<ul>
-<li>AI agent on Facebook Messenger, IG or WhatsApp</li>
-<li>Answers from your product catalog & policies</li>
-<li>Takes orders, logs them to Google Sheets</li>
-<li>Human handoff rules you control</li>
-<li>Care plan covers tuning & updates</li>
-</ul>
-<a class="pick cta-sm" href="#contact">Scope this build</a>
-</div>
-<div class="card">
-<span class="tag">FAST FIX</span>
-<h3>Workflow Rescue</h3>
-<div class="price">$500 <small>flat, 5 business days</small></div>
-<ul>
-<li>Broken n8n / Zapier / Make flows diagnosed</li>
-<li>Root-cause fix, not band-aids</li>
-<li>Error alerting so failures page you</li>
-<li>Health checks that self-heal restarts</li>
-<li>Written post-mortem of what broke & why</li>
-</ul>
-<a class="pick cta-sm" href="#contact">Send my broken flow</a>
-</div>
-</div>
-</section>
-
-<section id="proof">
-<h2>Systems I've shipped</h2>
-<p class="lead">Real deployments running today — not mockups.</p>
-<div class="proof">
-<div class="pf"><div class="k">Healthcare infra</div><h3>Tiered clinic storage platform</h3><p>Replaced Google Drive for a diagnostic clinic — automated tiering, sync jobs and cost controls across storage classes, with a web UI for staff.</p></div>
-<div class="pf"><div class="k">E-commerce ops</div><h3>Social sales automation</h3><p>Messenger commerce bot for a medical supplies trading business: AI replies from the product catalog, order capture to Sheets, image/video responses — running since March.</p></div>
-<div class="pf"><div class="k">SaaS platform</div><h3>Haki — instant automation deploys</h3><p>Founded and built a platform that ships production-ready AI agents and workflows in under 5 minutes. Live at nekobiz.com.</p></div>
-</div>
-</section>
-
-<section id="process">
-<h2>How it works</h2>
-<p class="lead">From first call to working system in about two weeks.</p>
-<div class="steps">
-<div class="step"><h3>Scoping call</h3><p>30 minutes. We map your workflow and agree the exact deliverable and price.</p></div>
-<div class="step"><h3>Build sprint</h3><p>I build and test against your real data. You see progress mid-week.</p></div>
-<div class="step"><h3>Deploy</h3><p>System goes live on your accounts, your infrastructure. No vendor lock-in.</p></div>
-<div class="step"><h3>Handover</h3><p>Source code, docs, and a walkthrough recording. It's yours forever.</p></div>
-</div>
-</section>
-
-<section id="demos">
-<h2>Live demos</h2>
-<p class="lead">Click through working examples before we ever talk.</p>
-<div class="demos">
-<a href="https://jordan.nekobiz.com/demo/lead-agent" target="_blank" rel="noopener">Lead Agent</a>
-<a href="https://jordan.nekobiz.com/demo/support-agent" target="_blank" rel="noopener">Support Agent</a>
-<a href="https://jordan.nekobiz.com/demo/scheduler" target="_blank" rel="noopener">Scheduler</a>
-<a href="https://jordan.nekobiz.com/demo/content-factory" target="_blank" rel="noopener">Content Factory</a>
-<a href="https://jordan.nekobiz.com/demo/document-processing" target="_blank" rel="noopener">Document Processing</a>
-</div>
-</section>
-
-<section id="faq">
-<h2>Questions, answered</h2>
-<p class="lead"></p>
-<details open><summary>Who owns the code?</summary><p>You do. Every build ends with a handover — source code, documentation, and credentials moved to your accounts. No lock-in, ever.</p></details>
-<details><summary>What tools do you build on?</summary><p>n8n, Python, Discord/Telegram/Messenger APIs, Jira, Google Workspace, and LLM APIs — chosen per job, favoring boring reliable tech over trends.</p></details>
-<details><summary>What if my project needs something unusual?</summary><p>The scoping call exists exactly for that. If I can't deliver real value, I'll tell you on the call instead of taking your money.</p></details>
-<details><summary>Do you work with international clients?</summary><p>Yes — most clients are in Australia and the United States. Async-first communication with clear update cadence.</p></details>
-</section>
-
-<section id="contact" class="final">
-<h2>Have a process that eats your week?</h2>
-<p>Tell me what it is. You'll get a straight answer on feasibility and price — usually within 24 hours.</p>
-<a class="btn-big cta-sm" href="mailto:jordanlacandula@hotmail.com?subject=Automation%20project%20inquiry">Email me — jordanlacandula@hotmail.com</a>
-</section>
-
-</main>
-
-<footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;width:100%">
-<span>© 2026 Jordan Lacandula</span>
-<span><a href="https://nekobiz.com">Haki ↗</a> · <a href="https://github.com/mark-automation">GitHub ↗</a></span>
-</div></footer>
 
 </body>
 </html>
