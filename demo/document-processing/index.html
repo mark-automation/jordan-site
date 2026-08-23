@@ -27,7 +27,7 @@ textarea{width:100%;min-height:300px;border:1px solid var(--line);border-radius:
 .run{display:inline-block;margin-top:14px;padding:13px 28px;border-radius:999px;background:var(--green);color:var(--cream);font-weight:600;font-size:14.5px;border:none;cursor:pointer;font-family:inherit;transition:.15s}
 .run:hover{background:var(--deep);transform:translateY(-2px)}
 .sample{background:none;border:none;color:var(--green);font-size:13px;cursor:pointer;text-decoration:underline;margin-left:14px;font-family:inherit}
-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
 th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 8px;border-bottom:2px solid var(--line)}
 td{padding:7px 8px;border-bottom:1px solid var(--line)}
 tr.total td{font-weight:600;border-bottom:none}
@@ -40,11 +40,12 @@ tr.total td{font-weight:600;border-bottom:none}
 .cta-row{text-align:center;margin:40px 0 70px}
 .btn{display:inline-block;padding:15px 30px;border-radius:999px;background:var(--green);color:var(--cream)!important;text-decoration:none;font-weight:600;font-size:15px}
 @media(max-width:800px){.cols{grid-template-columns:1fr}}
+@media (max-width:600px){select,input,textarea{font-size:16px!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a href="/jordan-site/">← dan.</a><a href="/jordan-site/#book">Book a call</a></div>
+  <div class="top"><a href="../">← dan.</a><a href="../#book">Book a call</a></div>
   <div class="banner"><b>Live interactive demo.</b> Paste real invoice text — the parser runs in your browser and outputs structured data you can download. Production versions read PDFs/emails straight from your inbox or drive.</div>
 
   <header>
@@ -69,7 +70,7 @@ tr.total td{font-weight:600;border-bottom:none}
   </div>
 
   <p class="note">In production this runs on PDFs, scans, and email attachments with OCR + LLM extraction, then files results into your systems automatically.</p>
-  <div class="cta-row"><a class="btn" href="/jordan-site/#book">Automate your paperwork — book a free call →</a></div>
+  <div class="cta-row"><a class="btn" href="../#book">Automate your paperwork — book a free call →</a></div>
 </div>
 
 <script>
@@ -116,13 +117,13 @@ function parse(){
   const data={vendor:vendor||null,invoice_number:inv||null,date:date||null,currency:currency||null,line_items:items,subtotal:+subtotal.toFixed(2),tax:+gst.toFixed(2),total:+total.toFixed(2)};
   window._data=data;
   let rows=items.map(i=>`<tr><td>${i.qty}</td><td>${i.item}</td><td>${currency} ${i.unit_price.toFixed(2)}</td><td style="text-align:right">${currency} ${i.line_total.toFixed(2)}</td></tr>`).join("");
-  out.innerHTML=`<table>
+  out.innerHTML=`<div class="tblwrap"><table>
     <tr><th>Qty</th><th>Item</th><th>Unit</th><th style="text-align:right">Line Total</th></tr>
     ${rows||"<tr><td colspan=4 style='color:#A33'>no line items detected</td></tr>"}
     ${subtotal?`<tr><td colspan=3>Subtotal</td><td style="text-align:right">${currency} ${subtotal.toFixed(2)}</td></tr>`:""}
     ${gst?`<tr><td colspan=3>Tax (GST/VAT)</td><td style="text-align:right">${currency} ${gst.toFixed(2)}</td></tr>`:""}
     <tr class="total"><td colspan=3>TOTAL</td><td style="text-align:right">${currency} ${total.toFixed(2)}</td></tr>
-  </table>
+  </table></div>
   <div class="stats">
     <div class="stat">Vendor: <b>${vendor||"—"}</b></div>
     <div class="stat">Invoice #: <b>${inv||"—"}</b></div>
