@@ -3,24 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Jordan Lacandula — AI Automation for Your Business</title>
-<meta name="description" content="I build AI systems that answer customers, qualify leads, book appointments, and process documents — automatically. Book a free 20-minute automation call." />
-
+<title>Jordan Lacandula | AI Automation &amp; Agent Systems for Business</title>
+<meta name="description" content="AI agents and workflow automation for small businesses — support, lead qualification, scheduling, and back-office ops, handled automatically. Book a free discovery call." />
+<meta property="og:title" content="Jordan Lacandula — AI Automation for Business" />
+<meta property="og:description" content="I build AI agents and automated workflows that handle support, leads, scheduling, and back-office operations. Book a free discovery call." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jordan.nekobiz.com/" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-930QGPRC27"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-930QGPRC27');
 </script>
-
-<!-- Open Graph -->
-<meta property="og:title" content="Jordan Lacandula — AI Automation for Your Business" />
-<meta property="og:description" content="AI systems that answer customers, qualify leads, book appointments, and process documents — automatically, 24/7." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jordan.nekobiz.com/" />
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -66,19 +63,11 @@ body {
 h1 {
     font-size: 46px;
     letter-spacing: -1px;
-    line-height: 1.15;
-}
-
-h1 .grad {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
     margin-top: 14px;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--muted);
     max-width: 720px;
 }
@@ -101,19 +90,13 @@ h1 .grad {
 
 .btn {
     display: inline-block;
-    padding: 12px 16px;
+    padding: 11px 14px;
     border-radius: 10px;
     border: 1px solid var(--border);
     text-decoration: none;
     color: var(--text);
     margin-right: 10px;
-    margin-bottom: 10px;
     font-size: 14px;
-    transition: 0.2s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
 }
 
 .btn.primary {
@@ -129,16 +112,46 @@ h1 .grad {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 18px;
     letter-spacing: 0.2px;
 }
 
-.section-sub {
+.lede {
     color: var(--muted);
-    font-size: 14px;
-    margin-top: -12px;
-    margin-bottom: 22px;
+    max-width: 720px;
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+/* PAIN LIST */
+.pains {
+    list-style: none;
+    max-width: 720px;
+}
+
+.pains li {
+    padding: 10px 0 10px 26px;
+    position: relative;
+    color: var(--text);
+    opacity: 0.9;
+    font-size: 15px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.pains li:last-child { border-bottom: none; }
+
+.pains li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+}
+
+.punch {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 /* GRID */
@@ -151,9 +164,11 @@ h2 {
 .card {
     background: var(--panel);
     border: 1px solid var(--border);
-    padding: 18px;
+    padding: 16px;
     border-radius: 12px;
     transition: 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -162,46 +177,54 @@ h2 {
 }
 
 .card h3 {
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 8px;
+}
+
+.card .kicker {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent2);
+    margin-bottom: 6px;
 }
 
 .card p {
     font-size: 13px;
-    color: var(--text);
-    opacity: 0.85;
+    color: var(--muted);
+    flex-grow: 1;
 }
 
-.card .card-tag {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--accent2);
-    opacity: 0.85;
-    margin-bottom: 6px;
+.card .card-link {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
 }
+
+.card .card-link:hover { color: var(--accent2); }
 
 /* STEPS */
 .steps {
     counter-reset: step;
+    max-width: 720px;
 }
 
 .step {
     display: flex;
     gap: 16px;
-    align-items: flex-start;
-    padding: 16px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border);
 }
 
 .step:last-child { border-bottom: none; }
 
 .step .num {
-    flex: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 999px;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     color: black;
     font-weight: 700;
@@ -212,8 +235,8 @@ h2 {
 }
 
 .step h3 {
-    font-size: 15px;
-    margin-bottom: 4px;
+    font-size: 14px;
+    margin-bottom: 2px;
 }
 
 .step p {
@@ -236,41 +259,12 @@ h2 {
     color: var(--muted);
 }
 
-/* BOOKING */
-.book-panel {
-    background: linear-gradient(135deg, rgba(108,124,255,0.10), rgba(0,212,255,0.06));
-    border: 1px solid rgba(108,124,255,0.35);
-    border-radius: 14px;
-    padding: 32px 28px;
-    text-align: center;
-}
-
-.book-panel h2 {
-    margin-bottom: 10px;
-}
-
-.book-panel p {
-    color: var(--muted);
-    font-size: 14px;
-    max-width: 520px;
-    margin: 0 auto 22px;
-}
-
-.book-panel .btn {
-    font-size: 16px;
-    padding: 14px 26px;
-    margin: 0;
-}
-
-.book-fallback {
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--muted);
-}
-
-.book-fallback a {
-    color: var(--accent2);
-    text-decoration: none;
+/* CALENDLY */
+.calendly {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
 }
 
 footer {
@@ -285,242 +279,232 @@ footer {
     gap: 8px;
 }
 
+footer a { color: var(--muted); }
+
 /* MOBILE */
 @media(max-width: 900px){
     .grid { grid-template-columns: 1fr; }
-    h1 { font-size: 34px; }
+    h1 { font-size: 36px; }
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
     <!-- HERO -->
     <div class="hero">
-        <div class="tag">AI Automation Studio</div>
+        <div class="tag">AI Automation · Agents · Workflow Integration</div>
 
-        <h1>Put your busywork<br><span class="grad">on autopilot.</span></h1>
+        <h1>Your busywork, handled by systems that don't sleep.</h1>
 
         <div class="subtitle">
-            I build AI systems that answer your customers, qualify your leads, book your
-            appointments, and process your documents — automatically, around the clock,
-            while you focus on running the business.
+            I'm Jordan Lacandula. I build AI agents and automated workflows that run
+            support, lead follow-up, scheduling, and back-office operations for small
+            businesses — so your team spends time on work that actually needs a human.
+            Building production systems since 2013.
         </div>
 
         <div class="cta">
-            <a class="btn primary" href="#book">Book a Free Automation Call</a>
-            <a class="btn" href="#demos">See It Working Live</a>
+            <a class="btn primary" href="#book">Book a Free Discovery Call</a>
+            <a class="btn" href="#services">What I Automate</a>
+        </div>
+    </div>
+
+    <!-- PAIN -->
+    <div class="section">
+        <h2>If this sounds like your week…</h2>
+
+        <ul class="pains">
+            <li>Leads go cold because nobody followed up within the hour.</li>
+            <li>Hours lost to copy-pasting data between apps, sheets, and inboxes.</li>
+            <li>Support questions answered one at a time, by hand, after hours.</li>
+            <li>Appointments booked over email, then forgotten until they no-show.</li>
+            <li>Reports and documents assembled manually every single week.</li>
+        </ul>
+
+        <div class="punch">
+            Every one of these is an automation problem. I build the system that makes it stop.
         </div>
     </div>
 
     <!-- SERVICES -->
-    <div class="section">
-        <h2>What I Automate</h2>
-        <p class="section-sub">Every system is built around your actual tools and workflow — not a template.</p>
+    <div class="section" id="services">
+        <h2>What I Build For You</h2>
 
         <div class="grid">
             <div class="card">
-                <span class="card-tag">Leads</span>
-                <h3>Lead Capture &amp; Qualification</h3>
-                <p>Every inquiry gets an instant, intelligent response. Leads are qualified,
-                followed up, and routed into your pipeline while they're still warm.</p>
+                <div class="kicker">Service 01</div>
+                <h3>AI Agent Systems</h3>
+                <p>
+                    Support, sales, and booking agents that answer customers, qualify
+                    leads, and schedule appointments 24/7 — in your tone of voice,
+                    escalating to a human only when it matters.
+                </p>
+                <a class="card-link" href="#book">Automate this →</a>
             </div>
 
             <div class="card">
-                <span class="card-tag">Support</span>
-                <h3>AI Customer Support</h3>
-                <p>An agent trained on your own knowledge base answers customer questions
-                24/7 and escalates the edge cases to your team.</p>
+                <div class="kicker">Service 02</div>
+                <h3>Workflow &amp; Back-Office Automation</h3>
+                <p>
+                    Pipelines that move data between the tools you already use — CRM,
+                    email, spreadsheets, invoicing, docs — with zero copy-paste and
+                    full audit trails.
+                </p>
+                <a class="card-link" href="#book">Automate this →</a>
             </div>
 
             <div class="card">
-                <span class="card-tag">Bookings</span>
-                <h3>Appointments &amp; Scheduling</h3>
-                <p>Conversational booking synced straight into your calendar, with automated
-                confirmations and reminders that cut no-shows.</p>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">Documents</span>
-                <h3>Document &amp; Data Processing</h3>
-                <p>Invoices, PDFs, forms, and emails are read, classified, and routed into
-                the right system automatically — no manual data entry.</p>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">Content</span>
-                <h3>Content Pipelines</h3>
-                <p>Blogs, emails, and social posts drafted on-brand and on schedule through
-                AI workflows you approve before anything ships.</p>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">Rescue</span>
-                <h3>Workflow Rescue</h3>
-                <p>Already tried automation and it broke, or never worked? I audit what you
-                have, fix what's salvageable, rebuild what isn't.</p>
+                <div class="kicker">Service 03</div>
+                <h3>Reliable by Design</h3>
+                <p>
+                    Automation you can actually trust: monitoring, error handling, and
+                    a decade of production engineering behind every deployment. When
+                    something breaks, it gets found and fixed — before you notice.
+                </p>
+                <a class="card-link" href="#book">Talk reliability →</a>
             </div>
         </div>
     </div>
 
-    <!-- HOW IT WORKS -->
-    <div class="section">
+    <!-- USE CASES -->
+    <div class="section" id="use-cases">
+        <h2>In Practice</h2>
+        <p class="lede">
+            Real automations I deploy. Yours will be shaped around how your business actually works.
+        </p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Customer Support Agent</h3>
+                <p>Answers customer questions instantly, pulls from your knowledge base, escalates edge cases to your team.</p>
+                <a class="card-link" href="#book">Book a call →</a>
+            </div>
+
+            <div class="card">
+                <h3>Lead Qualification</h3>
+                <p>Captures every inquiry, asks qualifying questions, routes hot prospects straight into your pipeline.</p>
+                <a class="card-link" href="#book">Book a call →</a>
+            </div>
+
+            <div class="card">
+                <h3>Appointment Booking</h3>
+                <p>Conversational scheduling synced to your calendar, with automatic confirmations and reminders.</p>
+                <a class="card-link" href="#book">Book a call →</a>
+            </div>
+
+            <div class="card">
+                <h3>Content Pipeline</h3>
+                <p>Blogs, emails, and social posts drafted and routed through review on autopilot.</p>
+                <a class="card-link" href="#book">Book a call →</a>
+            </div>
+
+            <div class="card">
+                <h3>Document Processing</h3>
+                <p>Extracts, classifies, and files information from PDFs, invoices, and forms without human touch.</p>
+                <a class="card-link" href="#book">Book a call →</a>
+            </div>
+
+            <div class="card">
+                <h3>Custom Workflow</h3>
+                <p>Something specific to your operation? We map it together and automate the slow parts.</p>
+                <a class="card-link" href="#book">Describe yours →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="section" id="process">
         <h2>How It Works</h2>
 
         <div class="steps">
             <div class="step">
                 <div class="num">1</div>
                 <div>
-                    <h3>Book a free 20-minute call</h3>
-                    <p>We map the one process eating most of your team's time. You leave with
-                    a clear picture of what can be automated — even if we never work together.</p>
+                    <h3>Free discovery call — 30 minutes</h3>
+                    <p>We map the one workflow costing you the most hours. You leave with a clear automation plan, whether we work together or not.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="num">2</div>
                 <div>
-                    <h3>I build and test it</h3>
-                    <p>A working system connected to your real tools and tested against your
-                    real workload — not a slide deck.</p>
+                    <h3>Build &amp; integrate</h3>
+                    <p>I design and ship the system into your existing stack — your tools, your data, minimal disruption.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="num">3</div>
                 <div>
-                    <h3>You approve and go live</h3>
-                    <p>Handover with training for your team, or ongoing management if you'd
-                    rather not think about it again.</p>
+                    <h3>Run &amp; maintain</h3>
+                    <p>Monitored in production, tuned over time, and supported long-term. It keeps working while you don't think about it.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- PROOF -->
-    <div class="section">
-        <h2>Built in Production</h2>
+    <div class="section" id="proof">
+        <h2>Built in Production, Not Slideware</h2>
+        <p class="lede">
+            Over a decade of shipping systems that have to stay up. That's the difference
+            between a demo and infrastructure your business can lean on.
+        </p>
 
         <div class="grid">
             <div class="card">
-                <h3>Clinic Storage Platform</h3>
-                <p>Full ordering and inventory system for a medical supplies trading
-                business — from manual tracking to a self-serve platform.</p>
+                <h3>Haki Platform Infrastructure</h3>
+                <p>End-to-end automation for service provisioning and deployment on live production infrastructure.</p>
             </div>
 
             <div class="card">
-                <h3>Haki — nekobiz.com</h3>
-                <p>A platform of deploy-ready AI agents and workflows: provisioning,
-                deployment, and backend automation with under-5-minute launches.</p>
+                <h3>Distributed Real-Time Backend</h3>
+                <p>Core architecture for a multiplayer simulation platform — low-latency state sync at scale.</p>
             </div>
 
             <div class="card">
-                <h3>Marketing Automation Engine</h3>
-                <p>Facebook and TikTok content/ad pipelines running end-to-end for a
-                trading company — brief in, scheduled campaign out.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- DEMOS -->
-    <div class="section" id="demos">
-        <h2>Try It Live</h2>
-        <p class="section-sub">Real working demos — click through and talk to them.</p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>AI Support Agent</h3>
-                <p>Answers customer questions, retrieves knowledge, and escalates
-                conversations when needed.</p>
-                <div class="cta" style="margin-top:14px;">
-                    <a class="btn" href="/demo/support-agent">Try Demo →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Lead Qualification Agent</h3>
-                <p>Captures leads, asks qualifying questions, and routes prospects into
-                the sales pipeline automatically.</p>
-                <div class="cta" style="margin-top:14px;">
-                    <a class="btn" href="/demo/lead-agent">Try Demo →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Appointment Scheduling Agent</h3>
-                <p>Conversational booking integrated with calendars and automated
-                reminders.</p>
-                <div class="cta" style="margin-top:14px;">
-                    <a class="btn" href="/demo/scheduler">Try Demo →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Content Generation Pipeline</h3>
-                <p>Blogs, emails, and social media content generated through AI-driven
-                workflows.</p>
-                <div class="cta" style="margin-top:14px;">
-                    <a class="btn" href="/demo/content-factory">Try Demo →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Document Processing</h3>
-                <p>Extracts, classifies, and routes information from PDFs and business
-                documents automatically.</p>
-                <div class="cta" style="margin-top:14px;">
-                    <a class="btn" href="/demo/document-processing">Try Demo →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Custom Business Workflow</h3>
-                <p>Something else entirely? Systems designed around your operations, not
-                the other way around.</p>
-                <div class="cta" style="margin-top:14px;">
-                    <a class="btn" href="#book">Discuss Yours →</a>
-                </div>
+                <h3>Performance Engineering</h3>
+                <p>C++ DirectX 11 rendering engine — low-level optimization discipline that carries into every system I build.</p>
             </div>
         </div>
     </div>
 
     <!-- STACK -->
     <div class="section">
-        <h2>Under the Hood</h2>
+        <h2>Tools &amp; Stack</h2>
         <div class="stack">
             <span class="pill">n8n</span>
-            <span class="pill">OpenAI / Claude / Gemini</span>
+            <span class="pill">LLM / AI Agents</span>
             <span class="pill">Python</span>
             <span class="pill">TypeScript</span>
             <span class="pill">Node.js</span>
-            <span class="pill">React</span>
+            <span class="pill">APIs &amp; Integrations</span>
             <span class="pill">CI/CD</span>
-            <span class="pill">Cloud Infrastructure</span>
+            <span class="pill">Cloud Ops</span>
         </div>
     </div>
 
     <!-- BOOKING -->
     <div class="section" id="book">
-        <div class="book-panel">
-            <h2>Book Your Free Automation Call</h2>
-            <p>
-                20 minutes. We'll map the single highest-value process in your business
-                that could be automated this month. No pitch deck, no obligation —
-                walk away with the roadmap either way.
-            </p>
-            <!-- Swap this href for a specific Calendly event-type URL once a client-facing
-                 event (e.g. "Free Automation Audit — 20 min") exists on calendly.com/keroro -->
-            <a class="btn primary" href="https://calendly.com/keroro" target="_blank" rel="noopener">
-                Pick a Time →
-            </a>
-            <div class="book-fallback">
-                Prefer email? <a href="mailto:jordanlacandula@hotmail.com">jordanlacandula@hotmail.com</a>
-            </div>
+        <h2>Book Your Free Discovery Call</h2>
+
+        <p class="lede">
+            30 minutes. We find the workflow eating most of your week and map what
+            automating it looks like — yours to keep, no strings attached.
+        </p>
+
+        <div class="calendly">
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/keroro/30min?hide_gdpr_banner=1"
+                 style="min-width:320px;height:700px;"></div>
+            <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
     </div>
 
     <footer>
-        <span>© 2026 Jordan Lacandula · AI Automation Studio</span>
-        <span>Working across US &amp; AU time zones</span>
+        <span>Jordan Lacandula — AI Automation for Business</span>
+        <span><a href="mailto:jordanlacandula@hotmail.com">jordanlacandula@hotmail.com</a> · Remote · AU/US-friendly hours</span>
     </footer>
 
 </div>
