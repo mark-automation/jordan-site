@@ -1,0 +1,75 @@
+name: uptime-watch
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe public surfaces
+        id: probe
+        run: |
+          set -u
+          fail=""
+          check() {
+            local url="$1" want="$2"
+            code=$(curl -sS -o /dev/null -w '%{http_code}' -m 20 "$url" || echo "000")
+            if [ "$code" != "$want" ]; then
+              fail="$fail\n- $url -> HTTP $code (expected $want)"
+              echo "FAIL $url $code"
+            else
+              echo "ok   $url $code"
+            fi
+          }
+          check https://nekobiz.com 200
+          check https://mark-automation.github.io/jordan-site/ 200
+          check https://mark-automation.github.io/islatrade/ 200
+          check https://mark-automation.github.io/cure-health/ 200
+          if [ -n "$fail" ]; then
+            {
+              echo "failures<<EOF"
+              printf '%b' "$fail"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
+      - name: Open deduped incident issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = `Uptime watch detected failures at ${new Date().toISOString()}:\n${process.env.failures || ''}\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const title = '🔴 uptime-watch: site(s) DOWN';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'uptime-watch'
+            });
+            const open = issues.data.find(i => i.title === title);
+            if (open) {
+              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: open.number, body });
+            } else {
+              await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, labels: ['uptime-watch'], body });
+            }
+
+      - name: Auto-resolve incident issue on recovery
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '🔴 uptime-watch: site(s) DOWN';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'uptime-watch'
+            });
+            for (const i of issues.data.filter(i => i.title === title)) {
+              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: i.number, state: 'closed' });
+              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: i.number, body: `Recovered at ${new Date().toISOString()} — auto-closed by uptime-watch.` });
+            }
