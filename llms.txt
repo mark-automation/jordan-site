@@ -1,0 +1,17 @@
+# Dan — AI Automation That Runs Your Business
+
+> Solo AI-automation studio by Jordan "Dan" Lacandula (Nekobiz, PH): builds and ships production AI agents and n8n workflows that answer customers, qualify leads, book appointments, and run back-office ops 24/7. Live demos of every system; free discovery call to scope yours.
+
+This site showcases deployable AI automation systems with working live demos. Each demo is a real interactive build, not a mockup. To engage: explore the demos below, then use the booking link on the home page for a free discovery call.
+
+## Demos
+
+- [AI Support Agent](https://mark-automation.github.io/jordan-site/demo/support-agent/): live customer-support agent demo — answers product questions, handles tickets
+- [Lead Qualification System](https://mark-automation.github.io/jordan-site/demo/lead-agent/): live demo — AI scores, routes, and drafts replies to inbound leads in under a minute
+- [Appointment Booking System](https://mark-automation.github.io/jordan-site/demo/scheduler/): live demo — automated scheduling and calendar booking flows
+- [Content Pipeline System](https://mark-automation.github.io/jordan-site/demo/content-factory/): live demo — AI content repurposing and publishing pipeline
+- [Document Processing System](https://mark-automation.github.io/jordan-site/demo/document-processing/): live demo — document intake, extraction, and routing
+
+## Site
+
+- [Home](https://mark-automation.github.io/jordan-site/): overview, service description, and booking link
