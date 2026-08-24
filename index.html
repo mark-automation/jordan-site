@@ -62,7 +62,7 @@
     --bg: #050507;
     --text: #F2F4FA;
     --muted: rgba(242,244,250,0.6);
-    --faint: rgba(242,244,250,0.35);
+    --faint: rgba(242,244,250,0.5);
     --border: rgba(255,255,255,0.09);
     --accent: #7C5CFF;
     --accent2: #00E0FF;
@@ -423,7 +423,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
 </style>
 </head>
 
-<body>
+<body><main>
 
 <div class="aurora"></div>
 
@@ -601,7 +601,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
         <div class="demo-body">
             <div class="demo-io">
                 <label>Incoming lead message</label>
-                <textarea id="lead-input">Hi, we're a 25-person accounting firm and we're drowning in manual data entry during tax season. We need something ASAP — ideally this month. What's your pricing? We have budget approved.</textarea>
+                <textarea id="lead-input" aria-label="Incoming lead message">Hi, we're a 25-person accounting firm and we're drowning in manual data entry during tax season. We need something ASAP — ideally this month. What's your pricing? We have budget approved.</textarea>
                 <div class="run-row">
                     <button class="btn-run" id="lead-run" onclick="runLeadDemo()">Run Qualification ▸</button>
                     <span class="run-hint">or paste your own inquiry</span>
@@ -621,7 +621,7 @@ footer { border-top: 1px solid var(--border); padding: 36px 0 44px; }
         <div class="demo-body">
             <div class="demo-io">
                 <label>Raw document / email text</label>
-                <textarea id="doc-input">From: accounts@brightwave-supplies.com
+                <textarea id="doc-input" aria-label="Raw document or email text">From: accounts@brightwave-supplies.com
 Invoice from Brightwave Supplies Ltd
 Invoice #: BS-20417
 Date: 2026-08-14
@@ -652,7 +652,7 @@ Total: $7,560.00</textarea>
         <div class="demo-body">
             <div class="demo-io">
                 <label>Pick a workflow</label>
-                <select id="wf-pick">
+                <select id="wf-pick" aria-label="Pick a workflow">
                     <option value="lead">New lead → qualify → CRM → notify team</option>
                     <option value="ticket">Support ticket → classify → answer or escalate</option>
                     <option value="invoice">Invoice received → extract → approval route</option>
@@ -970,5 +970,5 @@ async function runWfDemo(){
 }
 </script>
 
-</body>
+</main></body>
 </html>
