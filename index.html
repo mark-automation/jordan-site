@@ -98,13 +98,19 @@
 </script>
 <meta property="og:url" content="https://jordan.nekobiz.com/" />
 <link rel="describedby" type="text/plain" href="/jordan-site/llms.txt">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-930QGPRC27"></script>
+<!-- Google tag (gtag.js) — deferred until after window load so analytics never
+     competes with first paint / LCP (perf baseline 08-25: gtag = 166KiB + 119ms blocking). -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-930QGPRC27');
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-930QGPRC27';
+    document.head.appendChild(s);
+  });
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -816,11 +822,14 @@ Total: $7,560.00</textarea>
         automating it looks like — the plan is yours to keep either way.
     </p>
 
-    <div class="calendly-box">
+    <div class="calendly-box" id="calendly-box">
         <div class="calendly-inline-widget"
              data-url="https://calendly.com/keroro/30min?hide_gdpr_banner=1"
              style="min-width:320px;height:700px;"></div>
-        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly widget lazy-load: 2.8MB of booking JS/CSS loads only when the
+             booking section nears the viewport (perf baseline 08-25). Placeholder
+             keeps layout height so CLS stays at 0. -->
+        <div id="calendly-loading" style="display:flex;align-items:center;justify-content:center;height:700px;color:#8a8f98;font-size:14px;">Loading calendar…</div>
     </div>
 
     <div class="assure">No pressure, no obligation — if automation isn't a fit, I'll tell you straight.</div>
@@ -839,6 +848,31 @@ const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- Calendly lazy-load (perf: 2.8MB widget deferred until near-viewport) ---------- */
+(function () {
+    var loaded = false;
+    var box = document.getElementById('calendly-box');
+    if (!box) return;
+    function loadCalendly() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        s.onload = function () {
+            var ph = document.getElementById('calendly-loading');
+            if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
+        };
+        document.body.appendChild(s);
+    }
+    var cal = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) { loadCalendly(); cal.disconnect(); }
+        });
+    }, { rootMargin: '600px 0px' });
+    cal.observe(box);
+})();
 
 /* ---------- shared helpers ---------- */
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
